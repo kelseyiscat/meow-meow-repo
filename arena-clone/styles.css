@@ -1,16 +1,17 @@
 :root {
-  --bg: #0a0a0b;
-  --bg-elev: #131316;
-  --bg-elev-2: #1c1c20;
-  --border: #2a2a30;
-  --text: #ededee;
-  --text-dim: #9a9aa3;
-  --text-faint: #62626a;
-  --accent: #ffffff;
+  /* Light purple theme */
+  --bg: #f3eefc;          /* page background — light purple */
+  --bg-elev: #ffffff;     /* cards, sidebar, composer */
+  --bg-elev-2: #ece3fb;   /* hovered/active surfaces */
+  --border: #ddd0f5;      /* soft lavender border */
+  --text: #1f1535;        /* deep indigo for readability */
+  --text-dim: #5a4d7a;
+  --text-faint: #8b80a8;
+  --accent: #7c5cff;      /* primary action — purple */
   --accent-2: #7c5cff;
-  --accent-glow: rgba(124, 92, 255, 0.35);
-  --danger: #ff5c7a;
-  --success: #4ade80;
+  --accent-glow: rgba(124, 92, 255, 0.25);
+  --danger: #d6336c;
+  --success: #2f9e44;
   --radius: 14px;
   --radius-sm: 10px;
   --font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -152,15 +153,15 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 13px;
   transition: background 0.15s, border-color 0.15s, transform 0.05s;
 }
-.btn:hover { background: var(--bg-elev-2); border-color: #3a3a42; }
+.btn:hover { background: var(--bg-elev-2); border-color: #c4b3ec; }
 .btn:active { transform: translateY(1px); }
 .btn-primary {
   background: var(--accent);
-  color: #0a0a0b;
+  color: #ffffff;
   border-color: var(--accent);
   font-weight: 600;
 }
-.btn-primary:hover { background: #e5e5e5; border-color: #e5e5e5; }
+.btn-primary:hover { background: #6a48f0; border-color: #6a48f0; }
 .btn-ghost { background: transparent; }
 
 /* Hero / chat area */
@@ -178,7 +179,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 600;
   letter-spacing: -0.03em;
   margin: 0 0 12px;
-  background: linear-gradient(180deg, #ffffff 0%, #b8b8c0 100%);
+  background: linear-gradient(180deg, #2a1d52 0%, #7c5cff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -237,14 +238,14 @@ button { font-family: inherit; cursor: pointer; }
 }
 .send-btn {
   background: var(--accent);
-  color: #0a0a0b;
+  color: #ffffff;
   border: none;
   width: 36px; height: 36px;
   border-radius: 10px;
   display: grid; place-items: center;
   transition: transform 0.05s, background 0.15s;
 }
-.send-btn:hover { background: #e5e5e5; }
+.send-btn:hover { background: #6a48f0; }
 .send-btn:active { transform: scale(0.95); }
 
 /* Suggestion grid */
@@ -270,7 +271,7 @@ button { font-family: inherit; cursor: pointer; }
 .suggestion:hover {
   background: var(--bg-elev-2);
   color: var(--text);
-  border-color: #3a3a42;
+  border-color: #c4b3ec;
 }
 .suggestion-title { color: var(--text); font-weight: 500; margin-bottom: 2px; }
 
@@ -288,7 +289,7 @@ button { font-family: inherit; cursor: pointer; }
 /* Modal */
 .modal-backdrop {
   position: fixed; inset: 0;
-  background: rgba(8, 8, 10, 0.7);
+  background: rgba(42, 29, 82, 0.45);
   backdrop-filter: blur(6px);
   display: none;
   align-items: center;
@@ -384,8 +385,8 @@ button { font-family: inherit; cursor: pointer; }
 
 .submit-btn {
   margin-top: 6px;
-  background: var(--text);
-  color: #0a0a0b;
+  background: var(--accent);
+  color: #ffffff;
   border: none;
   padding: 11px;
   border-radius: var(--radius-sm);
@@ -393,7 +394,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 600;
   transition: background 0.15s;
 }
-.submit-btn:hover { background: #e5e5e5; }
+.submit-btn:hover { background: #6a48f0; }
 .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .divider {
