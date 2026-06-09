@@ -1,6 +1,6 @@
 :root {
   /* Light purple theme */
-  --bg: #f3eefc;          /* page background — light purple */
+  --bg: #001f3f;          /* page background — dark blue */
   --bg-elev: #ffffff;     /* cards, sidebar, composer */
   --bg-elev-2: #ece3fb;   /* hovered/active surfaces */
   --border: #ddd0f5;      /* soft lavender border */

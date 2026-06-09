@@ -35,4 +35,4 @@ Pull requests are welcome! 🎉 Bonus points for more cats. 🐾😸
 
 ## 📜 License
 
-Made with love 💖 and a lot of purring. 😺💤
+Made with love 💖 and a lot of purring. 😺💤 🐾🌟🐱
