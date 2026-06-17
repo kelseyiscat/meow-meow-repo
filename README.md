@@ -19,15 +19,19 @@ adorable cats 🐈, sleepy humans 😴, and a small web project. Grab a warm dri
 
 ## 🚀 Getting Started
 
-1. 📥 Clone the repo
-2. 📖 Read a cat story (`cute-cat` or `tired-Aryan`)
-3. 🌐 Open `arena-clone/index.html` in your browser
-4. 😻 Enjoy!
+1. 📥 **Clone** the repository.
+2. 📖 **Explore** the cozy stories in `cute-cat` and `tired-Aryan`.
+3. 🌐 **Launch** the demo by opening `arena-clone/index.html` in any modern browser.
+4. 😻 **Enjoy** the vibes!
+
+## 🌐 The Arena Clone
+
+The `arena-clone/` folder contains a lightweight UI exercise inspired by modern AI interfaces. It's a pure HTML/CSS/JS project—no installation required! Just open the `index.html` file.
 
 ## 🐈 Featured Stories
 
-- 🐱 **The Tiny Adventure of Mochi** — a curious kitten, a runaway leaf, and a sunny garden. ☀️🍃
-- 😴 **Aryan and the Little Golden Loaf** — one tired human, one very round cat. 💛🍞
+- 🐱 **[The Tiny Adventure of Mochi](./cute-cat)** — a curious kitten, a runaway leaf, and a sunny garden. ☀️🍃
+- 😴 **[Aryan and the Little Golden Loaf](./tired-Aryan)** — one tired human, one very round cat. 💛🍞
 
 ## 🤝 Contributing
 
