@@ -4,7 +4,7 @@
   This file serves as the main documentation for the repo.
 -->
 
-# 🐱 meow-meow-repo 😺🐰
+# 🐱 meow-meow-repo 😺🐰💖
 
 > A cozy little repo full of cats, naps, and tiny adventures. 🐾✨
 
