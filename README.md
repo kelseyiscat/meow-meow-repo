@@ -49,7 +49,7 @@ The `arena-clone/` folder contains a lightweight UI exercise inspired by modern 
 
 ## 🤝 Contributing
 
-Pull requests are welcome! 🎉 Bonus points for more cats. 🐾😸
+Pull requests are welcome! 🎉 Bonus points for more cats and cozy naps. 🐾😸💤
 
 ## 📜 License
 
