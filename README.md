@@ -8,6 +8,9 @@ Welcome! 👋 This repository is a soft, fuzzy corner of the internet dedicated 
 adorable cats 🐈, sleepy humans 😴, and a small web project. Grab a warm drink
 ☕ and stay a while. 🪴
 
+> 🐱 **Fun cat fact:** A group of cats is called a *clowder* — and cats sleep
+> for around 70% of their lives. Sounds like the good life! 😴🐾
+
 ## 📂 Project Structure
 
 | File / Folder | Description |
