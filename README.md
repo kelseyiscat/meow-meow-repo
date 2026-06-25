@@ -1,5 +1,7 @@
 # 🐱 meow-meow-repo 😺🐰
 
+<!-- Comment: This repo is officially approved by sleepy cats. -->
+
 > A cozy little repo full of cats, naps, and tiny adventures. 🐾✨
 
 ## 📖 About
