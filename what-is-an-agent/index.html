@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is an AI Agent? — A Plain-English Intro</title>
+  <meta name="description" content="A super simple, no-frills explainer of what an AI agent is, how it works, and where you might see one." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="#top">🐱 What is an Agent?</a>
+      <nav>
+        <a href="#what">What</a>
+        <a href="#how">How</a>
+        <a href="#examples">Examples</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>What is an AI agent?</h1>
+        <p class="lede">
+          An <strong>AI agent</strong> is a program that can <em>decide</em> what to do
+          and <em>take actions</em> on its own to help you finish a task —
+          not just answer a question.
+        </p>
+        <p class="sub">
+          No jargon. No animations. Just a quick read.
+        </p>
+      </div>
+    </section>
+
+    <!-- What -->
+    <section id="what" class="section">
+      <div class="container">
+        <h2>The short version</h2>
+        <p>
+          A normal chatbot <strong>talks</strong>. An agent <strong>does things</strong>.
+        </p>
+        <p>
+          If you ask a chatbot, "What's the weather?" it tells you what it knows.
+          If you ask an agent, "Plan my weekend hike," it can look up the weather,
+          check trail conditions, find parking, and put it all in a list for you —
+          using tools on your behalf.
+        </p>
+
+        <div class="callout">
+          <strong>Agent = Brain + Tools + Goal.</strong>
+          The "brain" is an AI model. The "tools" are things it can use (a web search,
+          a calendar, a file, an app). The "goal" is what you asked it to do.
+        </div>
+      </div>
+    </section>
+
+    <!-- How -->
+    <section id="how" class="section alt">
+      <div class="container">
+        <h2>How an agent works</h2>
+        <ol class="steps">
+          <li>
+            <h3>1. You give it a goal</h3>
+            <p>Like "summarize this repo" or "book me a cat-friendly Airbnb."</p>
+          </li>
+          <li>
+            <h3>2. It makes a plan</h3>
+            <p>The agent breaks your goal into smaller steps.</p>
+          </li>
+          <li>
+            <h3>3. It uses tools</h3>
+            <p>It reads files, searches the web, calls APIs, or runs code — whatever
+            it needs to make progress.</p>
+          </li>
+          <li>
+            <h3>4. It checks its work</h3>
+            <p>After each step, it looks at the result and decides what to do next.</p>
+          </li>
+          <li>
+            <h3>5. It hands you the result</h3>
+            <p>You get the finished thing — a summary, a draft, a booking, a pull request.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Examples -->
+    <section id="examples" class="section">
+      <div class="container">
+        <h2>Everyday examples</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>📨 Inbox helper</h3>
+            <p>Reads your unread email, drafts replies, and flags what actually needs you.</p>
+          </div>
+          <div class="card">
+            <h3>🧑‍💻 Coding agent</h3>
+            <p>Opens a repo, edits files, runs tests, and opens a pull request.</p>
+          </div>
+          <div class="card">
+            <h3>🛒 Shopping helper</h3>
+            <p>Compares prices across sites and fills the cart with what you asked for.</p>
+          </div>
+          <div class="card">
+            <h3>📅 Scheduler</h3>
+            <p>Finds a time everyone's free and sends the calendar invite.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agent vs Chatbot -->
+    <section class="section alt">
+      <div class="container">
+        <h2>Agent vs. Chatbot</h2>
+        <table class="compare">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Chatbot</th>
+              <th>Agent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Main job</td><td>Answer questions</td><td>Get tasks done</td></tr>
+            <tr><td>Tools</td><td>None (usually)</td><td>Many (search, files, APIs)</td></tr>
+            <tr><td>Steps</td><td>One reply</td><td>Many steps, in a loop</td></tr>
+            <tr><td>Best for</td><td>Quick info</td><td>Multi-step work</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <h2>Quick FAQ</h2>
+
+        <h3>Is an agent the same as ChatGPT?</h3>
+        <p>Not quite. ChatGPT can be used as the "brain" inside an agent, but on its own
+        a chat model just talks. An agent wraps a model with tools and a loop so it can act.</p>
+
+        <h3>Will it do things without asking me?</h3>
+        <p>That depends on the agent. Good ones ask before doing anything risky
+        (sending email, spending money, deleting files). You stay in control.</p>
+
+        <h3>Do I need to code to use one?</h3>
+        <p>No. Many agents are point-and-click. Some let you write instructions in plain English.</p>
+
+        <h3>What can go wrong?</h3>
+        <p>Agents can make mistakes — pick the wrong tool, misread a page, or get stuck.
+        That's why it's smart to start with small tasks and review what they do.</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <h2>That's it!</h2>
+        <p>Now you know what an agent is. Go try one on a small task and see how it feels. 🐾</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Made with ☕ and a sleepy cat. Part of <a href="../">meow-meow-repo</a>.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
