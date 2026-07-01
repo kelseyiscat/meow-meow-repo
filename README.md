@@ -27,6 +27,7 @@ Whether you're here to read wholesome stories or explore code, we hope this spac
 | --- | --- |
 | 🐾 `cute-cat` | The tiny adventure of Mochi the kitten 🐱🍃 |
 | 😴 `tired-Aryan` | Aryan and the little golden loaf, Biscuit 🍞💛 |
+| 🦊 `teozorro-cat` | Teozorro the fox who thinks he's a red velvet cat loaf 🦊🐱 |
 | 🌐 `arena-clone/` | A small web app (`index.html`, `styles.css`, `app.js`) ⚡ |
 | 🙈 `.gitignore` | Keeps the clutter out of git 🧹 |
 
@@ -34,7 +35,7 @@ Whether you're here to read wholesome stories or explore code, we hope this spac
 ## 🚀 Getting Started
 
 1. 📥 **Clone** the repository.
-2. 📖 **Explore** the cozy stories in `cute-cat` and `tired-Aryan`.
+2. 📖 **Explore** the cozy stories in `cute-cat`, `tired-Aryan`, and `teozorro-cat`.
 3. 🌐 **Launch** the demo by opening `arena-clone/index.html` in any modern browser.
 4. 😻 **Enjoy** the vibes!
 
@@ -48,6 +49,7 @@ The `arena-clone/` folder contains a lightweight UI exercise inspired by modern 
 
 - 🐱 **[The Tiny Adventure of Mochi](./cute-cat)** — a curious kitten, a runaway leaf, and a sunny garden. ☀️🍃
 - 😴 **[Aryan and the Little Golden Loaf](./tired-Aryan)** — one tired human, one very round cat. 💛🍞
+- 🦊 **[Teozorro the Red Velvet Loaf](./teozorro-cat)** — a little woodland fox who mastered sunbeams, cardboard boxes, and being a cat. 📦🐱
 
 ## 🤝 Contributing
 
