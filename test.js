@@ -1,5 +1,5 @@
-console.log("morning");
+console.log("🌅 Good morning!");
 
 function catTest() {
-  console.log("🐱");
+  console.log("🐱 Meow! 🐱");
 }
