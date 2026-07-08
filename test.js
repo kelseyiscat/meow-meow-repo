@@ -1,5 +1,12 @@
-console.log("🌅 Good morning!");
+console.log("🌅 Good morning! 🌞✨🌻☕");
 
 function catTest() {
-  console.log("🐱 Meow! 🐱");
+  console.log("🐱 Meow! 🐱 🐾 😺 😸 😹 😻 😽 🐈 ✨");
 }
+
+function partyTest() {
+  console.log("🎉🎊 Meow Party! 🥳🎈💃🕺✨ 🍕🍦🍩");
+}
+
+catTest();
+partyTest();
