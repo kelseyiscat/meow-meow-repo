@@ -52,6 +52,47 @@ Frontend follow-up (if time, 2 min): *"In arena-clone's UI, how would you show I
 
 ---
 
+### 🔧 Bonus: Back-end Signaling Server (5-min stretch)
+> *"We've decided to build the signaling service from Part 3 Q2. It needs to relay SDP offers/answers and ICE candidates between two peers over WebSocket."*
+
+**Question:** *"Write the core server-side logic (pseudo-code or your language of choice) for a WebSocket signaling server that pairs two peers and relays WebRTC signaling messages between them. How do you handle room creation, peer joining, and cleanup when a peer disconnects?"*
+
+**Acceptable answer sketch:**
+```javascript
+// Node.js + ws library — minimal signaling server
+const rooms = new Map(); // roomId -> [peer1, peer2]
+
+wss.on('connection', (ws) => {
+  ws.on('message', (data) => {
+    const { type, roomId, payload } = JSON.parse(data);
+
+    if (type === 'join') {
+      if (!rooms.has(roomId)) rooms.set(roomId, []);
+      const peers = rooms.get(roomId);
+      peers.push(ws);
+      ws.roomId = roomId;
+      if (peers.length === 2) {
+        peers.forEach(p => p.send(JSON.stringify({ type: 'ready' })));
+      }
+    }
+
+    if (type === 'signal') {
+      const peers = rooms.get(roomId) || [];
+      peers.forEach(p => { if (p !== ws && p.readyState === 1) p.send(JSON.stringify({ type: 'signal', payload })); });
+    }
+  });
+
+  ws.on('close', () => {
+    const peers = rooms.get(ws.roomId) || [];
+    peers.forEach(p => { if (p !== ws) p.send(JSON.stringify({ type: 'peer-left' })); });
+    rooms.set(ws.roomId, peers.filter(p => p !== ws));
+  });
+});
+```
+**Key points to look for:** room/peer tracking, relaying (not parsing) SDP/ICE messages, notifying the remaining peer on disconnect, and avoiding echo (don't send back to sender).
+
+---
+
 ## 🔑 Interviewer Answer Key
 
 ### Part 1
