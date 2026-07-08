@@ -10,3 +10,4 @@ function partyTest() {
 
 catTest();
 partyTest();
+console.log("how are you");
