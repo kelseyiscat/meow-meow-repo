@@ -1,0 +1,33 @@
+What is Arena.ai?
+=================
+
+Arena.ai — usually just called "Arena" — is the home of Chatbot Arena / LMArena, a community-powered platform for evaluating large language models (LLMs).
+
+In short: you type a prompt, two anonymous AI models answer side-by-side, you vote for the better response, and then the model names are revealed. Those votes feed a public leaderboard.
+
+Key points
+----------
+- Origin: Started in April/May 2023 as "Chatbot Arena" by researchers from UC Berkeley's LMSYS / Sky Computing Lab [1](https://en.wikipedia.org/wiki/LMArena)
+- Names: Chatbot Arena (2023) → LMArena / lmarena.ai (2024) → Arena / arena.ai (rebrand January 28, 2026) [3](https://uper.pl/en/blog/arena-ai-llm-leaderboard-guide-2026/)
+- How it works: Blind, head-to-head "battles". You vote left / right / tie / both bad. Votes are aggregated with a Bradley-Terry / Elo-style rating system to produce rankings [2](https://www.menra.ai/glossary/chatbot-arena)
+- Scale: Tens of millions of users, millions of votes logged, 327+ models tracked across 9+ categories as of mid-2026 [3](https://arena.ai/about)[4](https://www.aboutchromebooks.com/lmarena-ai/)
+- Who uses it: OpenAI, Google DeepMind, Anthropic, and others submit models for testing, often previewing unreleased models under codenames [1](https://en.wikipedia.org/wiki/LMArena)
+- Funding: $100M seed in May 2025 at ~$600M valuation, then a $150M Series A in January 2026 at ~$1.7B valuation. Backers include Andreessen Horowitz, Lightspeed, Kleiner Perkins, UC Investments [1](https://artsology.com/blog/2025/08/lm-arena-ai/)[3](https://uper.pl/en/blog/arena-ai-llm-leaderboard-guide-2026/)
+- Mission: "To measure and advance the frontier of AI for real-world use" with human preference data grounded in real-world prompts [3](https://arena.ai/about)
+
+Limitations to know
+-------------------
+Rankings measure human preference, not objective correctness, and can be influenced by verbosity, formatting, and style. There have been documented cases of model variants tuned specifically for Arena. For procurement decisions, it's best to combine Arena results with task-specific benchmarks (MMLU, SWE-Bench, GAIA, etc.) and cost data [2](https://www.menra.ai/glossary/chatbot-arena)[4](https://www.aboutchromebooks.com/lmarena-ai/)
+
+Other things called "Arena AI"
+------------------------------
+The name "Arena AI" is used by several unrelated projects:
+1. AI Arena (aiarena.io) – a PvP fighting game where players train AI-enabled NFTs [2](https://docs.aiarena.io/gaming-competition/introduction)
+2. Arena AI / TheArena.ai – an agentic AI workspace for marketing, predictive analytics, and project management [5](https://thearena.ai/)
+3. AI Arena (Google Gemini competition project) – an AI-driven tactical battle character creator game [4](https://ai.google.dev/competition/projects/ai-arena)
+
+When people in the LLM / AI research community say "Arena.ai", they almost always mean Chatbot Arena / LMArena at https://arena.ai
+
+---
+Created: 2026-07-08
+Repo: meow-meow-repo / arena-clone
