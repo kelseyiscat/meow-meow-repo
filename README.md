@@ -54,6 +54,7 @@ The `arena-clone/` folder contains a lightweight UI exercise inspired by modern 
 ## 🤝 Contributing
 
 Pull requests are welcome! 🎉 Bonus points for more cats. 🐾😸
+*Note: This README has been updated to test the edit_file tool.*
 
 ## 📜 License
 
