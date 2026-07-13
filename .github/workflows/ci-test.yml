@@ -1,3 +1,6 @@
+# This workflow is for testing purposes only.
+# It is NOT part of any production pipeline.
+
 name: CI Status Test
 
 on:
