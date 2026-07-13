@@ -1,7 +1,6 @@
 name: CI Status Test
 
 on:
-  push:
   pull_request:
   workflow_dispatch:
 
