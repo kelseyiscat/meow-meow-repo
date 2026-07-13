@@ -1,0 +1,38 @@
+name: CI Status Test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  always-success:
+    name: Always Success
+    runs-on: ubuntu-latest
+    steps:
+      - name: Succeed
+        run: echo "This job always succeeds."
+
+  always-failure:
+    name: Always Failure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail
+        run: |
+          echo "This job always fails."
+          exit 1
+
+  slow-job:
+    name: Slow Job (60 seconds)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 60 seconds
+        run: sleep 60
+
+  always-skipped:
+    name: Always Skipped
+    if: ${{ false }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: This step never runs
+        run: echo "This job should always be skipped."
