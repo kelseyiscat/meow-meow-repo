@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>meow-meow-repo · GH Workflow</title>
+<style>
+  body{font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;max-width:640px;margin:48px auto;padding:0 20px;color:#2b2233;background:#fffafc}
+  h1{font-size:1.4rem;margin:0 0 .3em}
+  code{background:#f3eef7;padding:.1em .35em;border-radius:6px;font-size:.9em}
+  ul,ol{padding-left:1.2em}
+  li{margin:.35em 0}
+  .cat{font-size:1.8rem}
+  a{color:#7b4dff;text-decoration:none}
+  a:hover{text-decoration:underline}
+  footer{margin-top:2em;font-size:.85rem;color:#8a7a92}
+</style>
+
+<div class="cat">🐱💤</div>
+<h1>meow-meow-repo · GitHub Actions</h1>
+<p>How the CI workflow works — in 5 cat naps:</p>
+
+<ol>
+  <li><b>Trigger:</b> <code>pull_request</code> or <code>workflow_dispatch</code> → <code>.github/workflows/ci-test.yml</code></li>
+  <li><b>Runners:</b> <code>ubuntu-latest</code> spins up, jobs run in parallel. meow.</li>
+  <li><b>Green:</b> <code>always-success</code>, <code>success-2</code>, <code>success-3</code> → ✅</li>
+  <li><b>Red:</b> <code>always-failure</code>, <code>failure-2</code>, <code>failure-3</code> → ❌ test failures on purpose</li>
+  <li><b>Slow:</b> <code>medium-slow 30s</code> · <code>slow 60s</code> · <code>120s</code> · <code>300s</code> · <code>600s</code> — nap timers 😴</li>
+</ol>
+
+<p>
+  <a href="./arena-clone/index.html">→ open arena-clone demo</a> ·
+  <a href="https://github.com/kelseyiscat/meow-meow-repo/actions">Actions tab</a>
+</p>
+
+<footer>super lightweight index · made with purrs 🐾 · <code>main</code> branch is cozy</footer>
+</html>
