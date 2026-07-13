@@ -29,3 +29,4 @@ console.log("how are you 🐱");
 // Test 1: Verify no errors in execution
 // Test 2: Check emoji rendering in different terminals
 // Test 3: Ensure functions are defined before calls
+// Test 4: Confirm script runs cleanly with node and produces expected output
