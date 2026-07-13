@@ -35,3 +35,81 @@ jobs:
     steps:
       - name: This step never runs
         run: echo "This job should always be skipped."
+
+# --- Additional test jobs ---
+
+  success-2:
+    name: Another Success
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo success
+        run: echo "This job also succeeds."
+
+  success-3:
+    name: Yet Another Success
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print something
+        run: |
+          echo "Hello from yet another success job!"
+          echo "All good here."
+
+  failure-2:
+    name: Another Failure
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail with error
+        run: |
+          echo "Going to fail now..."
+          exit 1
+
+  failure-3:
+    name: Failure with bad command
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run non-existent command
+        run: some-non-existent-command
+
+  long-running-slow:
+    name: Very Slow Job (120 seconds)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 120 seconds
+        run: sleep 120
+
+  extra-long-running:
+    name: Extra Long Job (300 seconds)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 300 seconds
+        run: sleep 300
+
+  skipped-by-condition:
+    name: Skipped by Condition
+    if: ${{ github.event_name == 'nonexistent_event' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Never runs
+        run: echo "This should never run."
+
+  skipped-by-false-expression:
+    name: Skipped by False Expression
+    if: ${{ contains('hello', 'xyz') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Never runs either
+        run: echo "Skipped due to false condition."
+
+  pending-long-sleep:
+    name: Pending Long Sleep (600 seconds)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 600 seconds
+        run: sleep 600
+
+  medium-slow:
+    name: Medium Slow Job (30 seconds)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep for 30 seconds
+        run: sleep 30
