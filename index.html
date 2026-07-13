@@ -1,9 +1,20 @@
+<!--
+  meow-meow-repo — GitHub Actions explainer
+  File: /index.html
+  Purpose: super lightweight landing page that explains how the CI workflow works
+  Workflow: .github/workflows/ci-test.yml
+  Last updated: 2026-07-13
+  meow 🐱
+-->
 <!doctype html>
 <html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>meow-meow-repo · GH Workflow</title>
+<!-- inline styles to keep it 1-file, zero-build, super light -->
 <style>
+  /* cozy cat theme — light pink background, purple accents */
   body{font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;max-width:640px;margin:48px auto;padding:0 20px;color:#2b2233;background:#fffafc}
   h1{font-size:1.4rem;margin:0 0 .3em}
   code{background:#f3eef7;padding:.1em .35em;border-radius:6px;font-size:.9em}
@@ -14,23 +25,43 @@
   a:hover{text-decoration:underline}
   footer{margin-top:2em;font-size:.85rem;color:#8a7a92}
 </style>
+</head>
+<body>
 
-<div class="cat">🐱💤</div>
+<!-- header / hero -->
+<div class="cat" aria-hidden="true">🐱💤</div>
 <h1>meow-meow-repo · GitHub Actions</h1>
 <p>How the CI workflow works — in 5 cat naps:</p>
 
+<!--
+  GH Actions 101, meow-style:
+  1. Trigger → what starts the workflow (PR, push, manual)
+  2. Runner  → ubuntu-latest VM GitHub gives you
+  3. Jobs    → run in parallel unless you add needs:
+  4. Steps   → shell commands inside each job
+  5. Status  → green ✅ / red ❌ / yellow 🟡 / skipped ⏭️
+-->
 <ol>
+  <!-- 1 — Trigger: PRs and manual dispatch kick off .github/workflows/ci-test.yml -->
   <li><b>Trigger:</b> <code>pull_request</code> or <code>workflow_dispatch</code> → <code>.github/workflows/ci-test.yml</code></li>
+  <!-- 2 — Runners: ephemeral ubuntu-latest, jobs fan out in parallel -->
   <li><b>Runners:</b> <code>ubuntu-latest</code> spins up, jobs run in parallel. meow.</li>
+  <!-- 3 — Success path: green check jobs prove happy-path CI -->
   <li><b>Green:</b> <code>always-success</code>, <code>success-2</code>, <code>success-3</code> → ✅</li>
+  <!-- 4 — Failure path: red X jobs are intentional, test failure reporting -->
   <li><b>Red:</b> <code>always-failure</code>, <code>failure-2</code>, <code>failure-3</code> → ❌ test failures on purpose</li>
+  <!-- 5 — Slow / timeout path: simulates long builds, queueing, cancellations -->
   <li><b>Slow:</b> <code>medium-slow 30s</code> · <code>slow 60s</code> · <code>120s</code> · <code>300s</code> · <code>600s</code> — nap timers 😴</li>
 </ol>
 
+<!-- quick links — keep people moving -->
 <p>
   <a href="./arena-clone/index.html">→ open arena-clone demo</a> ·
   <a href="https://github.com/kelseyiscat/meow-meow-repo/actions">Actions tab</a>
 </p>
 
+<!-- footer note — stays lightweight, no JS, no build -->
 <footer>super lightweight index · made with purrs 🐾 · <code>main</code> branch is cozy</footer>
+
+</body>
 </html>
