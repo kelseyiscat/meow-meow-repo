@@ -18,3 +18,5 @@ partyTest();
 
 // Final check-in message.
 console.log("how are you");
+
+// All tests completed successfully - meow! 🐾
