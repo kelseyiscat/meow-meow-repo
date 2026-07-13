@@ -1,8 +1,5 @@
-# =============================================================================
-# THIS WORKFLOW IS FOR TESTING PURPOSES ONLY.
-# It is used to verify various CI job statuses (success, failure, skipped,
-# slow/pending). It is NOT part of any production pipeline.
-# =============================================================================
+# This workflow is for testing purposes only.
+# It is NOT part of any production pipeline.
 
 name: CI Status Test
 
@@ -11,7 +8,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  # --- Test: job that always succeeds ---
   always-success:
     name: Always Success
     runs-on: ubuntu-latest
@@ -19,7 +15,6 @@ jobs:
       - name: Succeed
         run: echo "This job always succeeds."
 
-  # --- Test: job that always fails (exit 1) ---
   always-failure:
     name: Always Failure
     runs-on: ubuntu-latest
@@ -29,7 +24,6 @@ jobs:
           echo "This job always fails."
           exit 1
 
-  # --- Test: slow job to verify pending/in-progress status ---
   slow-job:
     name: Slow Job (60 seconds)
     runs-on: ubuntu-latest
@@ -37,7 +31,6 @@ jobs:
       - name: Sleep for 60 seconds
         run: sleep 60
 
-  # --- Test: job that is always skipped via `if: false` ---
   always-skipped:
     name: Always Skipped
     if: ${{ false }}
@@ -48,7 +41,6 @@ jobs:
 
 # --- Additional test jobs ---
 
-  # --- Test: another successful job ---
   success-2:
     name: Another Success
     runs-on: ubuntu-latest
@@ -56,7 +48,6 @@ jobs:
       - name: Echo success
         run: echo "This job also succeeds."
 
-  # --- Test: yet another successful job ---
   success-3:
     name: Yet Another Success
     runs-on: ubuntu-latest
@@ -66,7 +57,6 @@ jobs:
           echo "Hello from yet another success job!"
           echo "All good here."
 
-  # --- Test: another failing job (exit 1) ---
   failure-2:
     name: Another Failure
     runs-on: ubuntu-latest
@@ -76,7 +66,6 @@ jobs:
           echo "Going to fail now..."
           exit 1
 
-  # --- Test: failure caused by a non-existent command ---
   failure-3:
     name: Failure with bad command
     runs-on: ubuntu-latest
@@ -84,7 +73,6 @@ jobs:
       - name: Run non-existent command
         run: some-non-existent-command
 
-  # --- Test: long-running job to observe pending/in-progress behavior ---
   long-running-slow:
     name: Very Slow Job (120 seconds)
     runs-on: ubuntu-latest
@@ -92,7 +80,6 @@ jobs:
       - name: Sleep for 120 seconds
         run: sleep 120
 
-  # --- Test: extra-long-running job (5 minutes) ---
   extra-long-running:
     name: Extra Long Job (300 seconds)
     runs-on: ubuntu-latest
@@ -100,7 +87,6 @@ jobs:
       - name: Sleep for 300 seconds
         run: sleep 300
 
-  # --- Test: skipped via an impossible event condition ---
   skipped-by-condition:
     name: Skipped by Condition
     if: ${{ github.event_name == 'nonexistent_event' }}
@@ -109,7 +95,6 @@ jobs:
       - name: Never runs
         run: echo "This should never run."
 
-  # --- Test: skipped via a false expression ---
   skipped-by-false-expression:
     name: Skipped by False Expression
     if: ${{ contains('hello', 'xyz') }}
@@ -118,7 +103,6 @@ jobs:
       - name: Never runs either
         run: echo "Skipped due to false condition."
 
-  # --- Test: very long sleep to test pending status (10 minutes) ---
   pending-long-sleep:
     name: Pending Long Sleep (600 seconds)
     runs-on: ubuntu-latest
@@ -126,7 +110,6 @@ jobs:
       - name: Sleep for 600 seconds
         run: sleep 600
 
-  # --- Test: medium-length sleep job ---
   medium-slow:
     name: Medium Slow Job (30 seconds)
     runs-on: ubuntu-latest
