@@ -14,12 +14,32 @@ function catTest() {
 // Test comment: Integration test helper simulating party output with multiple emojis
 function partyTest() {
   console.log("🎉🎊 Meow Party! 🥳🎈💃🕺✨ 🍕🍦🍩");
+  return true;
+}
+
+// --- light-weight extra tests, cat-themed ---
+function purrTest() {
+  console.log("😺 purrr... purrr... ✅");
+  return true;
+}
+
+function napTest() {
+  console.log("😴💤 cat nap test... zzz ✅");
+  return true;
+}
+
+function zoomiesTest() {
+  console.log("🐾💨 ZOOMIES! 🏃🐱✨ ✅");
+  return true;
 }
 
 // Run both test helpers so their output appears immediately.
 // Test comment: Execute all test functions in sequence
 catTest();
 partyTest();
+purrTest();
+napTest();
+zoomiesTest();
 
 // Final check-in message.
 // Test comment: End-to-end verification message
