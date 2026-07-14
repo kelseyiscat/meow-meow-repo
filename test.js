@@ -33,3 +33,4 @@ console.log("how are you 🐱");
 // Added for testing purposes
 console.log("Testing new emoji! 🚀");
 console.log("Webhook push event test! 🔔🐱");
+console.log("Second webhook push event test! 🚀🔥😺");
