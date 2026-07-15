@@ -39,4 +39,4 @@ zoomiesTest();
 // Final check-in message.
 console.log("how are you 🐱");
 
-console.log("Testing new emoji! 🚀");
+console.log("Testing new emoji! 🚀🌟");
