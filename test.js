@@ -18,16 +18,19 @@ function partyTest() {
 }
 
 // --- light-weight extra tests, cat-themed ---
+// Purr test: verifies a simple happy-path message can be printed.
 function purrTest() {
   console.log("😺 purrr... purrr... ✅");
   return true;
 }
 
+// Nap test: keeps a calm success case in the sample output.
 function napTest() {
   console.log("😴💤 cat nap test... zzz ✅");
   return true;
 }
 
+// Zoomies test: covers an energetic emoji-heavy output line.
 function zoomiesTest() {
   console.log("🐾💨 ZOOMIES! 🏃🐱✨ ✅");
   return true;
