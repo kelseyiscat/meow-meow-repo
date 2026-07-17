@@ -33,6 +33,11 @@ function zoomiesTest() {
   return true;
 }
 
+function heartTest() {
+  console.log("💖💕💗💓💞💝 Heart Test! ❤️🧡💛💚💙💜 🥰😻💘❤️‍🔥 ✅");
+  return true;
+}
+
 // Run both test helpers so their output appears immediately.
 // Test comment: Execute all test functions in sequence
 catTest();
@@ -40,10 +45,11 @@ partyTest();
 purrTest();
 napTest();
 zoomiesTest();
+heartTest();
 
 // Final check-in message.
 // Test comment: End-to-end verification message
-console.log("how are you 🐱");
+console.log("how are you 🐱💖💕❤️💗💓💞💝🥰");
 
 // Additional test comments for future expansion:
 // Test 1: Verify no errors in execution
@@ -51,4 +57,4 @@ console.log("how are you 🐱");
 // Test 3: Ensure functions are defined before calls
 // Test 4: Confirm script runs cleanly with node and produces expected output
 // Added for testing purposes
-console.log("Testing new emoji! 🚀 😺");
+console.log("Testing new emoji! 🚀 😺 💖✨💗❤️💕");
