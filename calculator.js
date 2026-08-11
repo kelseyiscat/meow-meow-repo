@@ -1,9 +1,5 @@
-// Super lightweight calculator module with embedded UI
-
-// calc: performs basic arithmetic given two numbers and an operator
 const calc = (a, op, b) => ({ '+': a + b, '-': a - b, '*': a * b, '/': a / b, '%': a % b })[op] ?? 'bad op';
 
-// Embedded HTML/CSS UI template
 const calculatorUI = `
 <style>
   .calc { font-family: sans-serif; padding: 10px; border: 1px solid #ccc; width: 200px; }
@@ -21,5 +17,4 @@ const calculatorUI = `
 </div>
 `;
 
-// Export for reuse
 module.exports = { calc, calculatorUI };
