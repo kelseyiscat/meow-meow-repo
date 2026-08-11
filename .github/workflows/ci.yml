@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ "arena/019f6683-meow-meow-repo", "main" ]
+    branches: [ "main", "arena/**" ]
   pull_request:
-    branches: [ "arena/019f6683-meow-meow-repo", "main" ]
+    branches: [ "main", "arena/**" ]
 
 jobs:
   test:

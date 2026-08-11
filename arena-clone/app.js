@@ -1,4 +1,6 @@
-// --- Modal logic ---
+// --- Modal logic - improved for a11y & test 2026-08-11 ---
+'use strict';
+
 const modal = document.getElementById('modal');
 const modalTitle = document.getElementById('modalTitle');
 const modalSub = document.getElementById('modalSub');
@@ -7,13 +9,28 @@ const submitBtn = document.getElementById('submitBtn');
 const nameField = document.getElementById('nameField');
 const passwordHint = document.getElementById('passwordHint');
 let mode = 'signup';
+let lastFocusedElement = null;
 
 function openModal(initialMode = 'signup') {
+  lastFocusedElement = document.activeElement;
   setMode(initialMode);
   modal.classList.add('open');
-  setTimeout(() => document.getElementById(mode === 'signup' ? 'name' : 'email').focus(), 50);
+  // Small delay ensures modal is visible before focus - improved a11y
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      const targetId = mode === 'signup' ? 'name' : 'email';
+      const el = document.getElementById(targetId);
+      if (el) el.focus();
+    }, 50);
+  });
+  document.body.style.overflow = 'hidden';
 }
-function closeModal() { modal.classList.remove('open'); }
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  // Restore focus for keyboard users
+  if (lastFocusedElement) lastFocusedElement.focus();
+}
 
 function setMode(next) {
   mode = next;
@@ -39,9 +56,37 @@ function setMode(next) {
 
 document.getElementById('openSignUp').onclick = () => openModal('signup');
 document.getElementById('openSignIn').onclick = () => openModal('signin');
-tabs.forEach(t => t.onclick = () => setMode(t.dataset.tab));
+tabs.forEach(t => {
+  t.onclick = () => setMode(t.dataset.tab);
+  // Keyboard accessibility for tabs
+  t.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      const idx = Array.from(tabs).indexOf(t);
+      const nextIdx = e.key === 'ArrowRight' ? (idx + 1) % tabs.length : (idx - 1 + tabs.length) % tabs.length;
+      tabs[nextIdx].focus();
+      setMode(tabs[nextIdx].dataset.tab);
+    }
+  });
+});
 modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  // Trap focus in modal when open
+  if (e.key === 'Tab' && modal.classList.contains('open')) {
+    const focusable = modal.querySelectorAll('button, input, [tabindex]:not([tabindex="-1"])');
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+});
 
 // --- Validation ---
 function validateEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
