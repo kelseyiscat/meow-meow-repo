@@ -34,6 +34,7 @@ Whether you're here to read wholesome stories or explore code, we hope this spac
 | 🦊 `teozorro-cat` | Teozorro the fox who thinks he's a red velvet cat loaf 🦊🐱 |
 | 🌐 `arena-clone/` | A small web app (`index.html`, `styles.css`, `app.js`) ⚡ |
 | 🧪 `playTest.js` | Random generator utilities + demo 🎲 |
+| 🎲 `random.js` | Super simple random generator (int, choice, cat fact) 🐱 |
 | 🔧 `pullRequest.js` | Simple PR test helper |
 | 🙈 `.gitignore` | Keeps the clutter out of git 🧹 |
 | 📝 `arena_ai.txt` | Notes about Arena.ai platform |
