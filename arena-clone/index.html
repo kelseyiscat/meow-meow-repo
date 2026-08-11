@@ -62,7 +62,7 @@
 
       <div class="chat-area">
         <h1 class="hero-title">Experience the frontier 🐱😺</h1>
-        <p class="hero-sub">Chat with the world's best AI models side-by-side, vote on the winners, and explore the leaderboard.</p>
+        <p class="hero-sub">Chat with the world's best AI models side-by-side, vote on the winners, and explore the leaderboard. <span style="font-size:12px; background: var(--bg-elev-2); padding:2px 8px; border-radius:999px; border:1px solid var(--border)">test build 2026-08-11 ✅</span></p>
 
         <section class="company-card" aria-labelledby="companyCardTitle">
           <div class="company-kicker">About Arena.ai</div>
@@ -118,16 +118,16 @@
     </main>
   </div>
 
-  <!-- Sign up / Sign in modal -->
-  <div class="modal-backdrop" id="modal">
+  <!-- Sign up / Sign in modal - improved a11y 2026-08-11 -->
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close modal">×</button>
       <h2 id="modalTitle">Create your account</h2>
       <p class="sub" id="modalSub">Join the demo to save your chats and votes.</p>
 
-      <div class="tabs">
-        <button class="tab" data-tab="signin">Sign in</button>
-        <button class="tab active" data-tab="signup">Sign up</button>
+      <div class="tabs" role="tablist" aria-label="Authentication mode">
+        <button class="tab" data-tab="signin" role="tab" aria-selected="false">Sign in</button>
+        <button class="tab active" data-tab="signup" role="tab" aria-selected="true">Sign up</button>
       </div>
 
       <form class="form" id="authForm" novalidate>

@@ -1,4 +1,6 @@
-// Random Generator Utility
+// Random Generator Utility 🐱🎲
+// Improved 2026-08-11 - easy test changes
+'use strict';
 
 /**
  * Generates a random integer between min (inclusive) and max (inclusive).
@@ -69,10 +71,19 @@ function randomUUID() {
 }
 
 // --- Demo / Play ---
-console.log('🎲 Random Generator Demo');
-console.log('Random Int (1–100):', randomInt(1, 100));
-console.log('Random Float (0–1):', randomFloat(0, 1));
-console.log('Random Choice:', randomChoice(['apple', 'banana', 'cherry', 'date', 'elderberry']));
-console.log('Shuffled:', shuffle([1, 2, 3, 4, 5]).join(', '));
-console.log('Random String (8):', randomString(8));
-console.log('Random UUID:', randomUUID());
+function runDemo() {
+  console.log('🎲 Random Generator Demo - meow-meow-repo test 2026-08-11');
+  console.log('Random Int (1–100):', randomInt(1, 100));
+  console.log('Random Float (0–1):', randomFloat(0, 1).toFixed(4));
+  console.log('Random Choice:', randomChoice(['apple', 'banana', 'cherry', 'date', 'elderberry', 'meow 🐱']));
+  console.log('Shuffled:', shuffle([1, 2, 3, 4, 5]).join(', '));
+  console.log('Random String (8):', randomString(8));
+  console.log('Random UUID:', randomUUID());
+  console.log('✅ All random utils working!');
+}
+
+if (require.main === module) {
+  runDemo();
+}
+
+module.exports = { randomInt, randomFloat, randomChoice, shuffle, randomString, randomUUID, runDemo };

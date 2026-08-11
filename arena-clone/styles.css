@@ -17,6 +17,7 @@
   --font: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 html, body { margin: 0; padding: 0; height: 100%; }
 body {
   background: var(--bg);
@@ -346,10 +347,10 @@ button { font-family: inherit; cursor: pointer; }
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(124, 92, 255, 0.1);
 }
-.suggestion:hover {
-  background: var(--bg-elev-2);
-  color: var(--text);
-  border-color: #c4b3ec;
+.suggestion:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-color: var(--accent);
 }
 .suggestion-title { color: var(--text); font-weight: 500; margin-bottom: 2px; }
 
