@@ -34,6 +34,43 @@
 // act — just like a cat watching, thinking, and then pouncing! 🐱
 // ============================================================
 
+// ============================================================
+// 📦 HOW A SANDBOX WORKS
+// ============================================================
+//
+// A sandbox is an isolated execution environment where code can
+// run safely without affecting the host system or other processes.
+// Here's a look at the key ideas:
+//
+// 1. ISOLATION — The sandbox walls code off from the rest of the
+//    system. File access, network calls, and system resources are
+//    confined to a controlled scope, so a misbehaving script can't
+//    wander outside its litter box... er, boundaries. 📦
+//
+// 2. RESTRICTION — Permissions are limited by policy. The sandbox
+//    decides which syscalls, directories, ports, and capabilities
+//    the code may use. Everything else is denied by default —
+//    least privilege in action.
+//
+// 3. EXECUTION — The code runs inside this controlled space,
+//    whether it's an agent running commands, a test suite, or
+//    untrusted third-party code. It behaves as if it has a whole
+//    machine to itself, but it's really a fenced-in playground.
+//
+// 4. OBSERVATION — Because everything goes through the sandbox
+//    boundary, activity can be logged and monitored: commands run,
+//    files touched, and network requests attempted. Great for
+//    debugging and auditing.
+//
+// 5. DISPOSAL — When the work is done, the sandbox can be torn
+//    down and recreated fresh. No leftover state, no lingering
+//    side effects — a clean slate for the next run.
+//
+// In short: a sandbox is a safe, contained playground where code
+// can run freely — like a cat in a cardboard box: it can play all
+// it wants, but it can't knock anything off YOUR desk! 🐱📦
+// ============================================================
+
 // Test comment: Initial greeting output to verify console logging works
 console.log("🌅 Good morning! 🌞✨🌻☕");
 
