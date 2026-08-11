@@ -1,5 +1,38 @@
 // Welcome to the meow-meow-repo test file! 🐱
 // This file prints a few playful messages for quick testing.
+//
+// ============================================================
+// 🧠 HOW AN AGENT WORKS
+// ============================================================
+//
+// An agent is an autonomous program that perceives its environment,
+// makes decisions, and takes actions to achieve specific goals.
+// Here's a breakdown of the core loop:
+//
+// 1. PERCEIVE — The agent observes the world around it. It gathers
+//    data from sensors, APIs, user input, or file systems. This raw
+//    information becomes the agent's current "state" — what it knows
+//    about the environment right now.
+//
+// 2. REASON — Using the perceived state, the agent thinks. It may
+//    consult rules, run models (like LLMs), check constraints, or
+//    simulate outcomes. The goal is to decide what to do next.
+//
+// 3. ACT — The agent executes its chosen action: it might call a
+//    tool, write a file, send an HTTP request, or log a message.
+//    Actions change the environment and produce feedback.
+//
+// 4. OBSERVE — The agent sees the result of its action. Did it work?
+//    Was there an error? This feedback loops back into perception,
+//    closing the sense → think → act cycle.
+//
+// 5. ITERATE — The agent repeats this loop until its goal is met
+//    (or it runs out of steps). Each iteration refines its
+//    understanding and brings it closer to the desired outcome.
+//
+// In short: an agent is a goal-driven loop of observe, reason, and
+// act — just like a cat watching, thinking, and then pouncing! 🐱
+// ============================================================
 
 // Test comment: Initial greeting output to verify console logging works
 console.log("🌅 Good morning! 🌞✨🌻☕");
