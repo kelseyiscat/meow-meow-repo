@@ -123,7 +123,7 @@ function runDemo() {
   console.log('Shuffled:', shuffle([1, 2, 3, 4, 5]).join(', '));
   console.log('Random String (8):', randomString(8));
   console.log('Random UUID:', randomUUID());
-  console.log('✅ All random utils working!');
+  console.log('✅ All random utils working! 🐾✨');
 }
 
 // Only auto-run the demo when this file is executed directly
