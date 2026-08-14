@@ -74,7 +74,7 @@
   // ---------- tiny browser UI ----------
   var CSS =
     '.mcalc{font:16px/1.4 system-ui,sans-serif;width:220px;padding:12px;border:1px solid #ddd;' +
-    'border-radius:12px;background:#fffdf7;box-shadow:0 2px 8px rgba(0,0,0,.08)}' +
+    'border-radius:12px;background:#cfe4ff;box-shadow:0 2px 8px rgba(0,0,0,.08)}' +
     '.mcalc .d{padding:10px 8px;margin-bottom:8px;text-align:right;font-size:24px;' +
     'background:#f6f1e7;border-radius:8px;overflow:hidden;min-height:34px;box-sizing:border-box}' +
     '.mcalc .g{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}' +
