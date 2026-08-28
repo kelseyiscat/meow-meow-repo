@@ -28,7 +28,7 @@ function Badge({ badge, locked = false }) {
   return (
     <div className={`badge${locked ? ' locked' : ''}`}>
       <div className="badge-medal" style={locked ? undefined : { borderColor: badge.tint }}>
-        <span aria-hidden="true">{badge.icon}</span>
+        <img src={badge.icon} alt="" aria-hidden="true" />
       </div>
       <div className="badge-body">
         <div className="badge-name">{badge.name}</div>

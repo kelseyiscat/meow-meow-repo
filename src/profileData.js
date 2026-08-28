@@ -59,20 +59,47 @@ export const RANGES = [
   { id: 'all', label: 'All time' },
 ]
 
+import nanoBananaTester from '../badge/nano-banana-tester.gif'
+import fable5Tester from '../badge/fable-5-tester.gif'
+import earlyAccessPioneer from '../badge/early-access-pioneer.gif'
+import goodTaste from '../badge/good-taste.gif'
+import leaderboardWhisperer from '../badge/leaderboard-whisperer.gif'
+import trendsetter from '../badge/trendsetter.gif'
+import onARoll from '../badge/on-a-roll.gif'
+import weekendWarrior from '../badge/weekend-warrior.gif'
+import modelExplorer from '../badge/model-explorer.gif'
+import dailyDevotee from '../badge/daily-devotee.gif'
+import consistencyChamp from '../badge/consistency-champ.gif'
+import fairJudge from '../badge/fair-judge.gif'
+import calibrationPro from '../badge/calibration-pro.gif'
+import expertPrompter from '../badge/expert-prompter.gif'
+import edgeCaseHunter from '../badge/edge-case-hunter.gif'
+import creativeSpark from '../badge/creative-spark.gif'
+import promptCurator from '../badge/prompt-curator.gif'
+
 /**
  * Badges. Earned ones carry a date; locked ones carry progress toward the
  * threshold so the grid reads as a ladder rather than a wall of grey.
+ * Icons are the animated GIFs from /badge.
  */
 export const BADGES = [
-  { id: 'night-owl', name: 'Night Owl', icon: '🌙', tint: 'var(--blue)', desc: '500 prompts sent after 10pm.', earned: 'Apr 2026' },
-  { id: 'streak-60', name: 'Iron Streak', icon: '🔥', tint: 'var(--orange)', desc: '60-day run without missing a session.', earned: 'Jul 2026' },
-  { id: 'shipper', name: 'Shipper', icon: '🚢', tint: 'var(--green)', desc: '100 agent-authored PRs merged.', earned: 'Jun 2026' },
-  { id: 'deleter', name: 'Net Negative', icon: '✂️', tint: 'var(--blue)', desc: 'Deleted more lines than you added over a quarter.', earned: 'May 2026' },
-  { id: 'reviewer', name: 'Good Neighbour', icon: '🤝', tint: 'var(--green)', desc: '250 reviews left on teammates’ agent PRs.', earned: 'Aug 2026' },
-  { id: 'polyglot', name: 'Polyglot', icon: '🧩', tint: 'var(--yellow)', desc: 'Shipped in six languages in one year.', earned: 'Feb 2026' },
-  { id: 'marathon', name: 'Marathon', icon: '⏱', tint: 'var(--orange)', desc: 'A single session over eight hours.', progress: 0.84, goal: '6h 42m of 8h' },
-  { id: 'century', name: 'Century', icon: '💯', tint: 'var(--blue)', desc: '100 merged PRs in a single month.', progress: 0.46, goal: '46 of 100 this month' },
-  { id: 'mentor', name: 'Mentor', icon: '🧭', tint: 'var(--green)', desc: 'Onboard five teammates to Agent Mode.', progress: 0.6, goal: '3 of 5 onboarded' },
+  { id: 'early-access-pioneer', name: 'Early Access Pioneer', icon: earlyAccessPioneer, tint: 'var(--yellow)', desc: 'Joined Arena before general availability.', earned: 'Mar 2024' },
+  { id: 'nano-banana-tester', name: 'Nano Banana Tester', icon: nanoBananaTester, tint: 'var(--yellow)', desc: 'Battled the Nano Banana image model during its trial run.', earned: 'Feb 2026' },
+  { id: 'fable-5-tester', name: 'Fable 5 Tester', icon: fable5Tester, tint: 'var(--blue)', desc: 'Ran evaluation sessions on Fable 5 before launch.', earned: 'Apr 2026' },
+  { id: 'good-taste', name: 'Good Taste', icon: goodTaste, tint: 'var(--green)', desc: 'Your picks matched the community consensus 100 times.', earned: 'May 2026' },
+  { id: 'trendsetter', name: 'Trendsetter', icon: trendsetter, tint: 'var(--orange)', desc: 'Backed five models before they hit the top ten.', earned: 'Jun 2026' },
+  { id: 'on-a-roll', name: 'On A Roll', icon: onARoll, tint: 'var(--orange)', desc: '25 voting sessions completed in a single week.', earned: 'Jul 2026' },
+  { id: 'weekend-warrior', name: 'Weekend Warrior', icon: weekendWarrior, tint: 'var(--blue)', desc: 'Active every weekend for two months straight.', earned: 'Jul 2026' },
+  { id: 'model-explorer', name: 'Model Explorer', icon: modelExplorer, tint: 'var(--green)', desc: 'Compared 50 different models head to head.', earned: 'Aug 2026' },
+  { id: 'fair-judge', name: 'Fair Judge', icon: fairJudge, tint: 'var(--blue)', desc: 'Cast 500 blind votes without peeking at model names.', earned: 'Aug 2026' },
+  { id: 'creative-spark', name: 'Creative Spark', icon: creativeSpark, tint: 'var(--yellow)', desc: 'Ten of your prompts were featured on the explore page.', earned: 'Aug 2026' },
+  { id: 'leaderboard-whisperer', name: 'Leaderboard Whisperer', icon: leaderboardWhisperer, tint: 'var(--blue)', desc: 'Predict the monthly leaderboard top three, three months running.', progress: 0.67, goal: '2 of 3 months' },
+  { id: 'daily-devotee', name: 'Daily Devotee', icon: dailyDevotee, tint: 'var(--orange)', desc: 'Vote every day for 30 days straight.', progress: 0.3, goal: '9 of 30 days' },
+  { id: 'consistency-champ', name: 'Consistency Champ', icon: consistencyChamp, tint: 'var(--green)', desc: 'Keep a 90-day streak without missing a session.', progress: 0.74, goal: '67 of 90 days' },
+  { id: 'calibration-pro', name: 'Calibration Pro', icon: calibrationPro, tint: 'var(--blue)', desc: 'Reach 90% agreement with expert panel rankings.', progress: 0.86, goal: '77% of 90% agreement' },
+  { id: 'expert-prompter', name: 'Expert Prompter', icon: expertPrompter, tint: 'var(--yellow)', desc: 'Send 1,000 prompts that produce a decisive winner.', progress: 0.62, goal: '618 of 1,000 prompts' },
+  { id: 'edge-case-hunter', name: 'Edge Case Hunter', icon: edgeCaseHunter, tint: 'var(--orange)', desc: 'File 50 prompts that break a frontier model.', progress: 0.44, goal: '22 of 50 finds' },
+  { id: 'prompt-curator', name: 'Prompt Curator', icon: promptCurator, tint: 'var(--green)', desc: 'Have 25 prompts adopted into the shared eval set.', progress: 0.52, goal: '13 of 25 adopted' },
 ]
 
 export const DEFAULT_SETTINGS = {
