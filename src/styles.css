@@ -21,12 +21,13 @@
   --green: #199e70;
 
   /* sequential blue ramp, dark end recedes toward the surface */
-  --seq-0: #2b2724;
-  --seq-1: #1e3f68;
-  --seq-2: #256abf;
-  --seq-3: #3987e5;
-  --seq-4: #6da7ec;
-  --seq-5: #9ec5f4;
+  --seq-0: #2b2724;   /* track / empty — reads as surface */
+  --seq-1: #2a2e35;   /* near-zero: barely lifted off the panel */
+  --seq-2: #1e4472;
+  --seq-3: #256abf;
+  --seq-4: #3987e5;
+  --seq-5: #6da7ec;
+  --seq-6: #9ec5f4;
 
   --avatar: #2f7d4f;
   --rail-w: 76px;

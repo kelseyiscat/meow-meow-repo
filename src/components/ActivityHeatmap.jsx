@@ -2,12 +2,21 @@ import { useTooltip } from './Tooltip'
 import { DataTable } from './DataTable'
 import { DAYS, HEATMAP, HEATMAP_MAX, HEATMAP_PEAK, HOURS } from '../data'
 
-/** Sequential blue ramp: the dark end recedes toward the panel surface. */
-const RAMP = ['var(--seq-1)', 'var(--seq-2)', 'var(--seq-3)', 'var(--seq-4)', 'var(--seq-5)']
-const KEY_SWATCHES = ['var(--seq-0)', ...RAMP]
+/**
+ * Sequential blue ramp, six steps. The near-zero step sits just off the panel
+ * colour so quiet hours recede instead of reading as data.
+ */
+const RAMP = [
+  'var(--seq-1)',
+  'var(--seq-2)',
+  'var(--seq-3)',
+  'var(--seq-4)',
+  'var(--seq-5)',
+  'var(--seq-6)',
+]
 
 const colorFor = (v) =>
-  v === 0 ? 'var(--seq-0)' : RAMP[Math.min(RAMP.length - 1, Math.round((v / HEATMAP_MAX) * (RAMP.length - 1)))]
+  RAMP[Math.min(RAMP.length - 1, Math.round((v / HEATMAP_MAX) * (RAMP.length - 1)))]
 
 export function ActivityHeatmap({ tablesOpen }) {
   const bind = useTooltip()
@@ -27,7 +36,7 @@ export function ActivityHeatmap({ tablesOpen }) {
 
       <div className="heat-key">
         <span>Fewer</span>
-        {KEY_SWATCHES.map((c) => <i key={c} style={{ background: c }} />)}
+        {RAMP.map((c) => <i key={c} style={{ background: c }} />)}
         <span>More prompts</span>
         <span className="heat-peak">
           Peak: <b>{HEATMAP_PEAK}</b>

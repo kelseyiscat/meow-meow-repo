@@ -72,6 +72,59 @@ open arena-clone/index.html
 npx serve arena-clone
 ```
 
+## 🎁 Arena Wrapped
+
+A Spotify-Wrapped-style recap of a year of Arena agent sessions, built in the Arena
+visual language (warm dark surfaces, Instrument Serif display type, the icon rail
+and top bar from the app chrome).
+
+It lives at the repo root as a **Vite + React** app, so every part of the page is a
+component you can edit or reuse:
+
+```
+index.html            app entry
+vite.config.js
+src/
+  main.jsx            React root
+  App.jsx             page composition — sections in order
+  data.js             ALL the numbers (swap this for a real API response)
+  styles.css          design tokens + component styles
+  hooks/useReveal.js  scroll-into-view + reduced-motion helper
+  components/
+    Chrome.jsx           Rail, TopBar
+    Hero.jsx             opening headline
+    Section.jsx          Section + Panel wrappers
+    StatTile.jsx         KPI tile with count-up + sparkline
+    ModeStack.jsx        part-to-whole stacked bar
+    BarList.jsx          horizontal magnitude bars (languages, models)
+    ActivityHeatmap.jsx  day × hour heatmap
+    RepoRanking.jsx      ranked list with meters
+    FactGrid.jsx         fact cards
+    Archetype.jsx        closing card + share
+    Tooltip.jsx          shared hover layer (TooltipProvider / useTooltip)
+    DataTable.jsx        table view behind the "Show data tables" toggle
+```
+
+### Running locally
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # → dist/
+npm run preview    # serve the production build
+```
+
+### Adding a section
+Add the numbers to `src/data.js`, build a component in `src/components/`, then drop it
+into `src/App.jsx` inside a `<Section>` (and a `<Panel>` if it's a chart). `Section` and
+`Panel` pass a `shown` boolean to a function child, which is how bars and counters wait
+to animate until they scroll into view.
+
+### Charts
+Colours come from the validated dark-mode palette in `src/styles.css` — three
+categorical slots for the mode stack, a single blue hue for magnitude bars, and a
+six-step sequential ramp for the heatmap. Every chart ships a hover tooltip, direct
+labels, and a table view (top-right toggle), so nothing is carried by colour alone.
+
 <!-- Featured stories links -->
 ## 🐈 Featured Stories
 
