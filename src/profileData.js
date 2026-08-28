@@ -102,3 +102,57 @@ export const SETTINGS_SCHEMA = [
     ],
   },
 ]
+
+/* ============================================================
+   Model / arena statistics
+   ============================================================ */
+
+/** The one model you reach for. `runnersUp` gives it context, not a ranking chart. */
+export const MOST_USED_MODEL = {
+  name: 'claude-opus-5',
+  share: 44,
+  sessions: 1501,
+  hours: 612,
+  note: 'Your default for anything gnarly — and 71% of everything you merged.',
+  firstUsed: 'First used Feb 2026',
+  runnersUp: [
+    { name: 'claude-sonnet-5', share: 31 },
+    { name: 'claude-haiku-4.5', share: 17 },
+    { name: 'everything else', share: 8 },
+  ],
+}
+
+/**
+ * Preview models you voted for while they were still under a codename.
+ * Some have since been revealed; the rest are still in the blind pool.
+ */
+export const PRIVATE_MODELS = [
+  { codename: 'anonymous-otter', votes: 312, winRate: 68, revealed: null },
+  { codename: 'stealth-marmot', votes: 244, winRate: 61, revealed: 'claude-opus-5' },
+  { codename: 'quiet-heron', votes: 198, winRate: 57, revealed: null },
+  { codename: 'hidden-lynx', votes: 141, winRate: 54, revealed: 'claude-sonnet-5' },
+  { codename: 'silent-pika', votes: 96, winRate: 49, revealed: null },
+]
+
+/** Where you spend your battles. Share of 2,938 votes cast. */
+export const ARENAS = [
+  { name: 'Code Arena', icon: '⌘', share: 41, battles: 1204, note: 'You voted here more than the next two combined.' },
+  { name: 'WebDev Arena', icon: '◧', share: 23, battles: 676 },
+  { name: 'Text Arena', icon: '¶', share: 18, battles: 529 },
+  { name: 'Vision Arena', icon: '◎', share: 11, battles: 323 },
+  { name: 'Image Arena', icon: '✦', share: 7, battles: 206 },
+]
+
+/**
+ * The last seven days, oldest first. Sums to the 214 prompts reported by the
+ * 7-day metric tile, so the two never disagree.
+ */
+export const LAST_WEEK = [
+  { day: 'Sat', date: 'Aug 22', prompts: 14, hours: 3.1 },
+  { day: 'Sun', date: 'Aug 23', prompts: 11, hours: 2.4 },
+  { day: 'Mon', date: 'Aug 24', prompts: 32, hours: 8.6 },
+  { day: 'Tue', date: 'Aug 25', prompts: 41, hours: 11.2 },
+  { day: 'Wed', date: 'Aug 26', prompts: 37, hours: 10.4 },
+  { day: 'Thu', date: 'Aug 27', prompts: 52, hours: 14.8 },
+  { day: 'Fri', date: 'Aug 28', prompts: 27, hours: 7.3, partial: true },
+]
