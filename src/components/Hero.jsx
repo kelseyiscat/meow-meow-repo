@@ -14,9 +14,9 @@ export function Hero() {
       <h1 className={cls()} style={delay(1)}>
         You didn't just
         <br />
-        ask questions.
+        ask questions,
         <br />
-        <em>You shipped.</em>
+        <em>you evaluated.</em>
       </h1>
       <p className={`lede ${cls()}`} style={delay(2)}>
         3,412 prompts. 1,204 agent-hours. One extremely patient laptop fan. Here's everything you and
