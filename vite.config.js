@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react'
 // the Wrapped build; the loose scripts elsewhere in the repo are left alone.
 export default defineConfig({
   plugins: [react()],
-  server: { port: 5173, open: true },
+  server: { port: 5173, host: true, open: false, allowedHosts: ['.e2b.app'] },
   build: { outDir: 'dist', emptyOutDir: true },
 })
