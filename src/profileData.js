@@ -4,14 +4,14 @@
  */
 
 export const USER = {
-  name: 'Rex Stockham',
-  handle: '@rex',
-  email: 'rex@arena.ai',
+  name: 'Henry Hunan',
+  handle: '@hhunan',
+  email: 'hhunan@arena.ai',
   role: 'Staff Engineer',
   team: 'Platform',
   joined: 'Joined March 2024',
   plan: 'Team',
-  initials: 'R',
+  initials: 'H',
 }
 
 export const PRESET_AVATARS = [
