@@ -1,65 +1,31 @@
-import { DataTable } from './DataTable'
-import { useTooltip } from './Tooltip'
-import { BarList } from './BarList'
-import { FIELD, QUESTION_CLOUD } from '../data'
+import { useReveal } from '../hooks/useReveal'
+import { FIELD } from '../data'
 
 const fmt = (n) => n.toLocaleString('en-US')
 
-/**
- * Frequency cloud. Type size is the only encoding (5 discrete steps), so a
- * word never looks more important than it is; every term keeps the same ink
- * colour and carries its exact count in the tooltip and the table fallback.
- */
-export function QuestionCloud({ active, tablesOpen }) {
-  const bind = useTooltip()
-  const ranked = [...QUESTION_CLOUD].sort((a, b) => b.count - a.count)
-
+/** A weighted word-cloud of the prompts you asked in your favorite field. */
+export function QuestionCloud() {
+  const [ref, shown] = useReveal({ threshold: 0.2 })
   return (
     <>
-      <div className="field-head">
-        <div>
-          <div className="field-k">Your field</div>
-          <div className="field-name">{FIELD.name}</div>
-        </div>
-        <div className="field-val">
-          {FIELD.pct}%<small>{fmt(FIELD.sessions)} sessions</small>
-        </div>
-      </div>
-
-      <BarList
-        items={FIELD.runnersUp}
-        active={active}
-        tooltip={(f) => (
-          <>
-            {f.name}&nbsp;<b>{f.pct}%</b> <span>· of your sessions</span>
-          </>
-        )}
-      />
-
-      <div className="cloud">
-        {QUESTION_CLOUD.map((item, i) => (
+      <div ref={ref} className="cloud" aria-label={`Most-asked questions in ${FIELD.name}`}>
+        {FIELD.cloud.map((p, i) => (
           <span
-            key={item.q}
-            className={`cloud-w w${item.w}${active ? ' in' : ''}`}
-            style={{ transitionDelay: `${(i % 8) * 55}ms` }}
-            tabIndex={0}
-            {...bind(
-              <>
-                “{item.q}”&nbsp;<b>{fmt(item.count)}</b> <span>· prompts</span>
-              </>,
-            )}
+            key={p.q}
+            className={`cloud-w cw${shown ? ' in' : ''}`}
+            data-w={p.w}
+            style={{ '--i': i }}
           >
-            {item.q}
+            {p.q}
           </span>
         ))}
       </div>
-
-      <DataTable
-        open={tablesOpen}
-        caption="Most-asked prompts in Software & IT Services"
-        head={['#', 'Prompt', 'Prompts']}
-        rows={ranked.map((r, i) => [i + 1, r.q, fmt(r.count)])}
-      />
+      <div className="cloud-meta">
+        <span>
+          <b>{FIELD.name}</b> · {fmt(FIELD.prompts)} prompts · {FIELD.share}% of your year
+        </span>
+        <span className="cloud-note">sized by how often you asked</span>
+      </div>
     </>
   )
 }

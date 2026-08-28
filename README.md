@@ -106,7 +106,7 @@ src/
     Tooltip.jsx           shared hover layer (TooltipProvider / useTooltip)
     DataTable.jsx         table view behind the "Show data tables" toggle
     Hero.jsx StatTile.jsx ModeStack.jsx BarList.jsx
-    ActivityHeatmap.jsx RepoRanking.jsx FactGrid.jsx Archetype.jsx
+    SessionDigest.jsx QuestionCloud.jsx Archetype.jsx
     profile/
       ProfileHeader.jsx   identity + avatar editor (upload, presets, remove)
       MetricGrid.jsx      running counters with a 7d / 30d / all-time filter

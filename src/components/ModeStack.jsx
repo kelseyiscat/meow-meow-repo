@@ -15,7 +15,7 @@ export function ModeStack({ tablesOpen }) {
 
   return (
     <>
-      <div className="stack" role="img" aria-label={`Prompt share by mode: ${label}`}>
+      <div className="stack" role="img" aria-label={`Prompt share by arena mode: ${label}`}>
         {MODES.map((m) => (
           <div
             key={m.name}
@@ -44,16 +44,16 @@ export function ModeStack({ tablesOpen }) {
         {MODES.map((m) => (
           <div className="legend-item" key={m.name}>
             <i className="swatch" style={{ background: m.color }} />
-            {m.name}
+            {m.name} — {m.note}
           </div>
         ))}
       </div>
 
       <DataTable
         open={tablesOpen}
-        caption="Prompts by mode"
-        head={['Mode', 'Share', 'Prompts']}
-        rows={MODES.map((m) => [m.name, `${m.pct}%`, fmt(m.prompts)])}
+        caption="Prompts by arena mode"
+        head={['Mode', 'Share', 'Prompts', 'What it is']}
+        rows={MODES.map((m) => [m.name, `${m.pct}%`, fmt(m.prompts), m.note])}
       />
     </>
   )
