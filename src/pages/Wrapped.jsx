@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Hero } from '../components/Hero'
 import { Panel, Section } from '../components/Section'
@@ -6,11 +5,10 @@ import { StatTile } from '../components/StatTile'
 import { ModeStack } from '../components/ModeStack'
 import { BarList } from '../components/BarList'
 import { DataTable } from '../components/DataTable'
-import { ActivityHeatmap } from '../components/ActivityHeatmap'
-import { RepoRanking } from '../components/RepoRanking'
-import { FactGrid } from '../components/FactGrid'
+import { SessionDigest } from '../components/SessionDigest'
+import { QuestionCloud } from '../components/QuestionCloud'
 import { Archetype } from '../components/Archetype'
-import { KPIS, LANGUAGES, MODELS } from '../data'
+import { KPIS, MODELS } from '../data'
 
 const fmt = (n) => n.toLocaleString('en-US')
 
@@ -19,7 +17,25 @@ export default function Wrapped({ tablesOpen }) {
     <div className="wrap">
       <Hero />
 
-      <Section kicker="The headline" title="A year in four numbers.">
+      <Section
+        kicker="Your favorite field"
+        title="You lived in Software & IT Services."
+        sub="You routed 41% of your 3,412 prompts here. A cloud of what you actually asked — sized by how often you asked it."
+      >
+        <Panel>
+          <QuestionCloud />
+        </Panel>
+      </Section>
+
+      <Section
+        kicker="The digest"
+        title="Three sessions that defined the year."
+        sub="The latest, the longest, and the one where you steered the most — three conversations pulled straight out of your year."
+      >
+        <SessionDigest />
+      </Section>
+
+      <Section kicker="The headline" title="A year in three numbers.">
         {(shown) => (
           <div className="kpis">
             {KPIS.map((kpi, i) => (
@@ -30,9 +46,9 @@ export default function Wrapped({ tablesOpen }) {
       </Section>
 
       <Section
-        kicker="How you worked"
+        kicker="How you voted"
         title="Mostly, you let it drive."
-        sub="Share of all 3,412 prompts by mode. Agent Mode overtook Ask in March and never gave it back."
+        sub="Share of all 3,412 prompts by arena mode. In Battle you never pick the contenders — two anonymous models answer, you vote, and only then are the names revealed."
       >
         <Panel>
           <ModeStack tablesOpen={tablesOpen} />
@@ -40,37 +56,9 @@ export default function Wrapped({ tablesOpen }) {
       </Section>
 
       <Section
-        kicker="Where the lines went"
-        title="Six languages, one obsession."
-        sub="Share of 412,806 lines your agents wrote, edited, or mercifully deleted."
-      >
-        <Panel>
-          {(shown) => (
-            <>
-              <BarList
-                items={LANGUAGES}
-                active={shown}
-                tooltip={(l) => (
-                  <>
-                    {l.name}&nbsp;<b>{l.pct}%</b> <span>· {fmt(l.lines)} lines</span>
-                  </>
-                )}
-              />
-              <DataTable
-                open={tablesOpen}
-                caption="Lines by language"
-                head={['Language', 'Share', 'Lines']}
-                rows={LANGUAGES.map((l) => [l.name, `${l.pct}%`, fmt(l.lines)])}
-              />
-            </>
-          )}
-        </Panel>
-      </Section>
-
-      <Section
-        kicker="Who you worked with"
+        kicker="Who you voted for"
         title="You had a type."
-        sub="Share of sessions by the model behind the agent."
+        sub="Share of your 2,794 votes by the model that won the battle."
       >
         <Panel>
           {(shown) => (
@@ -80,37 +68,19 @@ export default function Wrapped({ tablesOpen }) {
                 active={shown}
                 tooltip={(m) => (
                   <>
-                    {m.name}&nbsp;<b>{m.pct}%</b> <span>· {fmt(m.sessions)} sessions</span>
+                    {m.name}&nbsp;<b>{m.pct}%</b> <span>· {fmt(m.votes)} votes</span>
                   </>
                 )}
               />
               <DataTable
                 open={tablesOpen}
-                caption="Sessions by model"
-                head={['Model', 'Share', 'Sessions', 'Notes']}
-                rows={MODELS.map((m) => [m.name, `${m.pct}%`, fmt(m.sessions), m.note])}
+                caption="Votes by winning model"
+                head={['Model', 'Share', 'Votes', 'Notes']}
+                rows={MODELS.map((m) => [m.name, `${m.pct}%`, fmt(m.votes), m.note])}
               />
             </>
           )}
         </Panel>
-      </Section>
-
-      <Section
-        kicker="When you worked"
-        title="You are, statistically, nocturnal."
-        sub="Prompts by day and hour. Darker means quieter; brighter means you were very much awake."
-      >
-        <Panel>
-          <ActivityHeatmap tablesOpen={tablesOpen} />
-        </Panel>
-      </Section>
-
-      <Section kicker="Your top five" title="The repos that got you.">
-        <Panel>{(shown) => <RepoRanking active={shown} tablesOpen={tablesOpen} />}</Panel>
-      </Section>
-
-      <Section kicker="Loose ends" title="Some things we noticed.">
-        <FactGrid />
       </Section>
 
       <Archetype />
