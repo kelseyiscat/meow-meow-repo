@@ -18,10 +18,6 @@ export function Hero() {
         <br />
         <em>you evaluated.</em>
       </h1>
-      <p className={`lede ${cls()}`} style={delay(2)}>
-        3,412 prompts. 1,204 agent-hours. One extremely patient laptop fan. Here's everything you and
-        your agents got up to this year.
-      </p>
       <div className={`scroll-cue ${cls()}`} style={delay(3)}>
         <svg viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M12 5v14M6 13l6 6 6-6" />
