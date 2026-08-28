@@ -7,8 +7,8 @@ import { ModeStack } from './components/ModeStack'
 import { BarList } from './components/BarList'
 import { DataTable } from './components/DataTable'
 import { ActivityHeatmap } from './components/ActivityHeatmap'
-import { RepoRanking } from './components/RepoRanking'
-import { FactGrid } from './components/FactGrid'
+import { SessionDigest } from './components/SessionDigest'
+import { QuestionCloud } from './components/QuestionCloud'
 import { Archetype } from './components/Archetype'
 import { TooltipProvider } from './components/Tooltip'
 import { KPIS, LANGUAGES, MODELS } from './data'
@@ -113,12 +113,22 @@ export default function App() {
             </Panel>
           </Section>
 
-          <Section kicker="Your top five" title="The repos that got you.">
-            <Panel>{(shown) => <RepoRanking active={shown} tablesOpen={tablesOpen} />}</Panel>
+          <Section
+            kicker="The digest"
+            title="The sessions that stuck."
+            sub="The latest, the longest, and the one where you steered the most — three conversations pulled straight out of your year."
+          >
+            <SessionDigest />
           </Section>
 
-          <Section kicker="Loose ends" title="Some things we noticed.">
-            <FactGrid />
+          <Section
+            kicker="Your favorite field"
+            title="Software & IT services, naturally."
+            sub="You routed 41% of your 3,412 prompts here. A cloud of what you actually asked — sized by how often you asked it."
+          >
+            <Panel>
+              <QuestionCloud />
+            </Panel>
           </Section>
 
           <Archetype />
