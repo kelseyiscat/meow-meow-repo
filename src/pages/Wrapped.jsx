@@ -7,8 +7,8 @@ import { ModeStack } from '../components/ModeStack'
 import { BarList } from '../components/BarList'
 import { DataTable } from '../components/DataTable'
 import { ActivityHeatmap } from '../components/ActivityHeatmap'
-import { RepoRanking } from '../components/RepoRanking'
-import { FactGrid } from '../components/FactGrid'
+import { SessionHighlights } from '../components/SessionHighlights'
+import { QuestionCloud } from '../components/QuestionCloud'
 import { Archetype } from '../components/Archetype'
 import { KPIS, LANGUAGES, MODELS } from '../data'
 
@@ -19,7 +19,7 @@ export default function Wrapped({ tablesOpen }) {
     <div className="wrap">
       <Hero />
 
-      <Section kicker="The headline" title="A year in four numbers.">
+      <Section kicker="The headline" title="A year in three numbers.">
         {(shown) => (
           <div className="kpis">
             {KPIS.map((kpi, i) => (
@@ -105,12 +105,20 @@ export default function Wrapped({ tablesOpen }) {
         </Panel>
       </Section>
 
-      <Section kicker="Your top five" title="The repos that got you.">
-        <Panel>{(shown) => <RepoRanking active={shown} tablesOpen={tablesOpen} />}</Panel>
+      <Section
+        kicker="Your standouts"
+        title="Three sessions that defined the year."
+        sub="The latest, the longest, and the one you would not stop steering."
+      >
+        <SessionHighlights tablesOpen={tablesOpen} />
       </Section>
 
-      <Section kicker="Loose ends" title="Some things we noticed.">
-        <FactGrid />
+      <Section
+        kicker="What you asked about"
+        title="You lived in Software & IT Services."
+        sub="47% of your sessions landed in one field. Here's the language you brought to it — bigger means you typed it more."
+      >
+        <Panel>{(shown) => <QuestionCloud active={shown} tablesOpen={tablesOpen} />}</Panel>
       </Section>
 
       <Archetype />
