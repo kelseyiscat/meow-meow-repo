@@ -16,7 +16,7 @@ export function Hero() {
         <br />
         ask questions.
         <br />
-        <em>You shipped.</em>
+        <em>You evaluated.</em>
       </h1>
       <p className={`lede ${cls()}`} style={delay(2)}>
         3,412 prompts. 1,204 agent-hours. One extremely patient laptop fan. Here's everything you and
