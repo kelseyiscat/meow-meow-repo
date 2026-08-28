@@ -115,3 +115,92 @@ export const HEATMAP = (() => {
 
 export const HEATMAP_MAX = Math.max(...HEATMAP.flat())
 export const HEATMAP_PEAK = 'Thursday, 11pm'
+
+/* ============================================================
+   Sessions that defined the year
+   Three superlatives, each with the stat that earned it.
+   ============================================================ */
+export const SESSIONS = [
+  {
+    id: 'latest',
+    kicker: 'Your latest session',
+    title: 'how long will melatonin take effect',
+    stat: '3:34',
+    unit: 'AM',
+    meta: 'Dec 29 · Ask · 4 turns · 1m 12s',
+    note: 'You closed the tab nine minutes later. We hope it worked.',
+    metrics: [
+      ['Started', '3:34 AM'],
+      ['Turns', '4'],
+      ['Mode', 'Ask'],
+    ],
+  },
+  {
+    id: 'longest',
+    kicker: 'Your longest session',
+    title: 'egg first or chicken first',
+    stat: 102,
+    unit: 'turns',
+    meta: 'Aug 11 · Ask · 6h 42m',
+    note: 'Neither of you conceded. The session is technically still open.',
+    metrics: [
+      ['Turns', '102'],
+      ['Duration', '6h 42m'],
+      ['Conclusions reached', '0'],
+    ],
+  },
+  {
+    id: 'complex',
+    kicker: 'Your most complex session',
+    title: 'Final prepare for Operating System',
+    stat: 18,
+    unit: 'steers',
+    meta: 'May 04 · Agent Mode · 3h 05m',
+    note: 'You steered 18 times and left 12 praise-and-complain signals. Micromanagement, but productive.',
+    metrics: [
+      ['Steers', '18'],
+      ['Praise signals', '7'],
+      ['Complaint signals', '5'],
+    ],
+  },
+]
+
+/* ============================================================
+   Favorite field + the prompts that built it
+   `w` is a 1–5 weight: it drives type size in the cloud and
+   ranks the table fallback. No colour encoding — size only.
+   ============================================================ */
+export const FIELD = {
+  name: 'Software & IT Services',
+  pct: 47,
+  sessions: 1604,
+  runnersUp: [
+    { name: 'Software & IT Services', pct: 47 },
+    { name: 'Education & Research', pct: 21 },
+    { name: 'Finance & Markets', pct: 14 },
+    { name: 'Health & Lifestyle', pct: 11 },
+    { name: 'Everything else', pct: 7 },
+  ],
+}
+
+export const QUESTION_CLOUD = [
+  { q: 'why is my build failing', w: 5, count: 214 },
+  { q: 'explain this stack trace', w: 4, count: 168 },
+  { q: 'refactor this into a hook', w: 4, count: 151 },
+  { q: 'is this O(n log n)', w: 2, count: 44 },
+  { q: 'write a migration for this schema', w: 3, count: 97 },
+  { q: 'docker compose wont start', w: 3, count: 88 },
+  { q: 'what does this regex do', w: 2, count: 61 },
+  { q: 'make the tests pass', w: 5, count: 203 },
+  { q: 'best way to cache this', w: 2, count: 52 },
+  { q: 'rewrite this commit message', w: 1, count: 29 },
+  { q: 'why is the CSS not applying', w: 3, count: 84 },
+  { q: 'kubernetes pod crashloopbackoff', w: 2, count: 47 },
+  { q: 'summarize this PR for review', w: 3, count: 79 },
+  { q: 'typescript type error help', w: 4, count: 142 },
+  { q: 'how do I undo a git rebase', w: 2, count: 58 },
+  { q: 'is this thread safe', w: 1, count: 26 },
+  { q: 'design a rate limiter', w: 2, count: 41 },
+  { q: 'name this variable for me', w: 1, count: 33 },
+  { q: 'ship it', w: 4, count: 130 },
+]
