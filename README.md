@@ -50,58 +50,91 @@ open arena-clone/index.html
 npx serve arena-clone
 ```
 
-## 🎁 Arena Wrapped
+## 🎁 Arena Profile + Wrapped
 
-A Spotify-Wrapped-style recap of a year of Arena agent sessions, built in the Arena
-visual language (warm dark surfaces, Instrument Serif display type, the icon rail
-and top bar from the app chrome).
+A user profile page in the Arena visual language (warm dark surfaces, Instrument
+Serif display type, the icon rail and top bar from the app chrome), with a
+Spotify-Wrapped-style year in review behind it.
 
-It lives at the repo root as a **Vite + React** app, so every part of the page is a
-component you can edit or reuse:
+It lives at the repo root as a **Vite + React** app.
+
+| Route | Page |
+|---|---|
+| `/` | Profile — picture, settings, log out, running metrics, weekly usage, models & arenas, badges |
+| `/wrapped` | Arena Wrapped — the year in review, linked from the bottom of the profile |
 
 ```
-index.html            app entry
-vite.config.js
+index.html · vite.config.js · package.json
 src/
-  main.jsx            React root
-  App.jsx             page composition — sections in order
-  data.js             ALL the numbers (swap this for a real API response)
-  styles.css          design tokens + component styles
-  hooks/useReveal.js  scroll-into-view + reduced-motion helper
+  main.jsx              React root + BrowserRouter
+  App.jsx               routes, app chrome, avatar/settings/session state
+  data.js               Wrapped numbers
+  profileData.js        user, metrics, badges, settings, models, arenas, last week
+  styles.css            design tokens + component styles
+  hooks/
+    useReveal.js        scroll-into-view + reduced-motion
+    useLocalState.js    useState that persists to localStorage
+  pages/
+    Profile.jsx         landing page
+    Wrapped.jsx         year in review
   components/
-    Chrome.jsx           Rail, TopBar
-    Hero.jsx             opening headline
-    Section.jsx          Section + Panel wrappers
-    StatTile.jsx         KPI tile with count-up + sparkline
-    ModeStack.jsx        part-to-whole stacked bar
-    BarList.jsx          horizontal magnitude bars (languages, models)
-    ActivityHeatmap.jsx  day × hour heatmap
-    RepoRanking.jsx      ranked list with meters
-    FactGrid.jsx         fact cards
-    Archetype.jsx        closing card + share
-    Tooltip.jsx          shared hover layer (TooltipProvider / useTooltip)
-    DataTable.jsx        table view behind the "Show data tables" toggle
+    Chrome.jsx            Rail + TopBar (title, back link, per-page actions)
+    Avatar.jsx            uploaded image / preset gradient / initial
+    Section.jsx           Section + Panel wrappers
+    Tooltip.jsx           shared hover layer (TooltipProvider / useTooltip)
+    DataTable.jsx         table view behind the "Show data tables" toggle
+    Hero.jsx StatTile.jsx ModeStack.jsx BarList.jsx
+    ActivityHeatmap.jsx RepoRanking.jsx FactGrid.jsx Archetype.jsx
+    profile/
+      ProfileHeader.jsx   identity + avatar editor (upload, presets, remove)
+      MetricGrid.jsx      running counters with a 7d / 30d / all-time filter
+      UsageChart.jsx      last 7 days of prompts, one column per day
+      ModelSpotlight.jsx  most used model + the runners-up behind it
+      ArenaBreakdown.jsx  favourite Arena + the rest of the split
+      PrivateModels.jsx   preview models you backed before the reveal
+      BadgeGrid.jsx       earned badges + in-progress ladder
+      SettingsPanel.jsx   settings sheet
+      LogoutDialog.jsx    logout confirm + signed-out screen
+      Modal.jsx           dialog shell (Esc, click-outside, focus, scroll lock)
+      WrappedCallout.jsx  the link to /wrapped at the bottom
 ```
 
 ### Running locally
 ```bash
 npm install
-npm run dev        # http://localhost:5173
+npm run dev        # http://localhost:5173  (opens automatically)
 npm run build      # → dist/
-npm run preview    # serve the production build
+npm run preview    # http://localhost:4173, serves the production build
 ```
 
+Use `npm run preview` rather than a plain static server for `dist/`: the app uses
+`BrowserRouter`, so `/wrapped` needs an SPA fallback that `python -m http.server`
+doesn't provide.
+
+### Where the numbers line up
+`LAST_WEEK` in `profileData.js` sums to 214, the same figure the 7-day *Prompts*
+metric tile reports, and its busiest day (Thursday) matches the peak in the Wrapped
+activity heatmap. Keep those in step when you swap in real data.
+
+### What persists
+The chosen profile picture and the settings are stored in `localStorage`
+(`arena.avatar`, `arena.settings`) via `useLocalState`, so they survive a reload.
+Every read and write is guarded — the page renders correctly when storage is
+blocked or empty.
+
 ### Adding a section
-Add the numbers to `src/data.js`, build a component in `src/components/`, then drop it
-into `src/App.jsx` inside a `<Section>` (and a `<Panel>` if it's a chart). `Section` and
-`Panel` pass a `shown` boolean to a function child, which is how bars and counters wait
-to animate until they scroll into view.
+Add the numbers to `src/data.js` or `src/profileData.js`, build a component in
+`src/components/`, then drop it into the page. On Wrapped, wrap it in a `<Section>`
+(and a `<Panel>` if it's a chart); on Profile, wrap it in the local `Reveal` helper.
+All three pass a `shown` boolean to a function child, which is how bars and counters
+wait to animate until they scroll into view.
 
 ### Charts
 Colours come from the validated dark-mode palette in `src/styles.css` — three
-categorical slots for the mode stack, a single blue hue for magnitude bars, and a
-six-step sequential ramp for the heatmap. Every chart ships a hover tooltip, direct
-labels, and a table view (top-right toggle), so nothing is carried by colour alone.
+categorical slots for the mode stack, a single blue hue for magnitude bars and
+meters, and a six-step sequential ramp for the heatmap. Every chart ships a hover
+tooltip and direct labels, and the Wrapped charts add a table view, so nothing is
+carried by colour alone.
 
 ## 🧪 Testing
 
