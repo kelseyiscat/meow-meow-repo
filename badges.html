@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark" />
+  <title>Arena Badges — Gallery</title>
+  <style>
+    :root {
+      --bg: #262320; --panel: #302b26; --panel-2: #38322c;
+      --line: #3e3831; --line-2: #4a433b;
+      --ink: #dcd6cb; --ink-2: #a49b90; --ink-3: #756d64;
+      --blue: #3987e5; --orange: #d95926; --green: #199e70; --yellow: #d9a827;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: Poppins, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      padding: 48px 24px 80px;
+    }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    h1 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400;
+         font-size: 34px; margin: 0 0 6px; letter-spacing: -0.01em; }
+    .sub { color: var(--ink-3); font-size: 14px; margin-bottom: 40px; }
+    .split { display: flex; align-items: center; gap: 14px; margin: 30px 0 18px;
+             font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+    .split i { flex: 1; height: 1px; background: var(--line); }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .badge {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 18px; display: flex; gap: 16px; align-items: flex-start;
+    }
+    .badge img { width: 96px; height: 96px; flex: none; display: block; }
+    .name { font-size: 14.5px; }
+    .desc { font-size: 12.5px; color: var(--ink-3); margin-top: 3px; line-height: 1.5; }
+    .meta { font-size: 11.5px; color: var(--ink-2); margin-top: 9px; letter-spacing: 0.04em; }
+    .badge.locked img { opacity: 0.9; }
+    .bar { height: 5px; background: #2b2724; border-radius: 3px; overflow: hidden; margin-top: 11px; }
+    .bar i { display: block; height: 100%; border-radius: 0 3px 3px 0; }
+    .goal { font-size: 11.5px; color: var(--ink-3); margin-top: 7px; }
+    @media (max-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Arena Badges</h1>
+    <p class="sub">Animated GIFs · 144×144 · transparent · 2s glow-pulse loop</p>
+
+    <div class="split"><span>Earned</span><i></i></div>
+    <div class="grid">
+      <div class="badge"><img src="badges/night-owl.gif" alt="Night Owl" /><div>
+        <div class="name">🌙 Night Owl</div>
+        <div class="desc">500 prompts sent after 10pm.</div>
+        <div class="meta">Earned Apr 2026</div>
+      </div></div>
+      <div class="badge"><img src="badges/iron-streak.gif" alt="Iron Streak" /><div>
+        <div class="name">🔥 Iron Streak</div>
+        <div class="desc">60-day run without missing a session.</div>
+        <div class="meta">Earned Jul 2026</div>
+      </div></div>
+      <div class="badge"><img src="badges/shipper.gif" alt="Shipper" /><div>
+        <div class="name">🚢 Shipper</div>
+        <div class="desc">100 agent-authored PRs merged.</div>
+        <div class="meta">Earned Jun 2026</div>
+      </div></div>
+      <div class="badge"><img src="badges/net-negative.gif" alt="Net Negative" /><div>
+        <div class="name">✂️ Net Negative</div>
+        <div class="desc">Deleted more lines than you added over a quarter.</div>
+        <div class="meta">Earned May 2026</div>
+      </div></div>
+      <div class="badge"><img src="badges/good-neighbour.gif" alt="Good Neighbour" /><div>
+        <div class="name">🤝 Good Neighbour</div>
+        <div class="desc">250 reviews left on teammates’ agent PRs.</div>
+        <div class="meta">Earned Aug 2026</div>
+      </div></div>
+      <div class="badge"><img src="badges/polyglot.gif" alt="Polyglot" /><div>
+        <div class="name">🧩 Polyglot</div>
+        <div class="desc">Shipped in six languages in one year.</div>
+        <div class="meta">Earned Feb 2026</div>
+      </div></div>
+    </div>
+
+    <div class="split"><span>In progress</span><i></i></div>
+    <div class="grid">
+      <div class="badge locked"><img src="badges/marathon.gif" alt="Marathon" /><div>
+        <div class="name">⏱ Marathon</div>
+        <div class="desc">A single session over eight hours.</div>
+        <div class="bar"><i style="width:84%; background: var(--orange)"></i></div>
+        <div class="goal">6h 42m of 8h</div>
+      </div></div>
+      <div class="badge locked"><img src="badges/century.gif" alt="Century" /><div>
+        <div class="name">💯 Century</div>
+        <div class="desc">100 merged PRs in a single month.</div>
+        <div class="bar"><i style="width:46%; background: var(--blue)"></i></div>
+        <div class="goal">46 of 100 this month</div>
+      </div></div>
+      <div class="badge locked"><img src="badges/mentor.gif" alt="Mentor" /><div>
+        <div class="name">🧭 Mentor</div>
+        <div class="desc">Onboard five teammates to Agent Mode.</div>
+        <div class="bar"><i style="width:60%; background: var(--green)"></i></div>
+        <div class="goal">3 of 5 onboarded</div>
+      </div></div>
+    </div>
+  </div>
+</body>
+</html>
