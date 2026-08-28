@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { Rail, TopBar } from './components/Chrome'
+import { FixedGif } from './components/FixedGif'
 import { TooltipProvider } from './components/Tooltip'
 import { SignedOut } from './components/profile/LogoutDialog'
 import { useLocalState } from './hooks/useLocalState'
@@ -71,6 +72,8 @@ export default function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+
+      <FixedGif />
     </TooltipProvider>
   )
 }
