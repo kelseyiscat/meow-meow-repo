@@ -143,7 +143,7 @@ main { margin-left: var(--rail-w); padding-top: 86px; }
 .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; }
 
 /* ---------------- stat tiles ---------------- */
-.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
 .tile {
   background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
   padding: 22px 22px 20px; transition: border-color 0.2s ease, background 0.2s ease;

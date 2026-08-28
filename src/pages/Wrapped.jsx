@@ -19,7 +19,7 @@ export default function Wrapped({ tablesOpen }) {
     <div className="wrap">
       <Hero />
 
-      <Section kicker="The headline" title="A year in four numbers.">
+      <Section kicker="The headline" title="A year in three numbers.">
         {(shown) => (
           <div className="kpis">
             {KPIS.map((kpi, i) => (

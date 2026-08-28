@@ -23,13 +23,6 @@ export const KPIS = [
     spark: [40, 52, 61, 58, 74, 88, 95, 104, 112, 126, 138, 156],
   },
   {
-    id: 'prs',
-    label: 'PRs merged',
-    value: 187,
-    note: '14 in one Tuesday',
-    spark: [6, 9, 8, 13, 11, 16, 14, 19, 17, 22, 25, 27],
-  },
-  {
     id: 'lines',
     label: 'Lines shipped',
     value: 412.8,
@@ -87,7 +80,7 @@ export const ARCHETYPE = {
   tags: ['Top 3% in Agent Mode', '63-day streak', 'More deletions than additions'],
   share: [
     'My Arena Wrapped 2026 — The Midnight Refactorer',
-    '3,412 prompts · 1,204 agent-hours · 187 PRs merged · 412.8k lines',
+    '3,412 prompts · 1,204 agent-hours · 412.8k lines shipped',
     '61% Agent Mode · peak hour: Thursday 11pm · 63-day streak',
   ].join('\n'),
 }

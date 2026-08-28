@@ -30,26 +30,17 @@ export const METRICS = {
   '7d': [
     { id: 'prompts', label: 'Prompts', value: 214, delta: 12, unit: '', series: [22, 19, 28, 31, 24, 35, 29, 33, 26, 38, 30, 41, 36, 44] },
     { id: 'hours', label: 'Agent hours', value: 63, delta: 8, unit: 'h', series: [6, 7, 5, 9, 8, 11, 9, 12, 10, 13, 11, 14, 12, 15] },
-    { id: 'merged', label: 'PRs merged', value: 11, delta: -2, unit: '', series: [1, 2, 1, 3, 2, 1, 2, 3, 1, 2, 2, 3, 1, 2] },
-    { id: 'accepted', label: 'Diff accept rate', value: 82, delta: 3, unit: '%', series: [74, 76, 73, 78, 80, 77, 81, 79, 83, 80, 84, 82, 85, 82] },
     { id: 'streak', label: 'Current streak', value: 9, delta: 0, unit: 'd', series: [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 9, 9] },
-    { id: 'reviews', label: 'Reviews given', value: 17, delta: 5, unit: '', series: [1, 2, 2, 3, 1, 2, 3, 2, 1, 3, 2, 4, 3, 2] },
   ],
   '30d': [
     { id: 'prompts', label: 'Prompts', value: 892, delta: 18, unit: '', series: [48, 55, 61, 58, 66, 72, 69, 78, 74, 83, 79, 88, 84, 92] },
     { id: 'hours', label: 'Agent hours', value: 271, delta: 14, unit: 'h', series: [14, 17, 16, 20, 19, 23, 21, 25, 23, 27, 25, 29, 27, 31] },
-    { id: 'merged', label: 'PRs merged', value: 46, delta: 9, unit: '', series: [2, 3, 4, 3, 5, 4, 3, 5, 4, 6, 4, 5, 6, 4] },
-    { id: 'accepted', label: 'Diff accept rate', value: 79, delta: 1, unit: '%', series: [72, 74, 71, 76, 78, 75, 79, 77, 80, 78, 81, 79, 82, 79] },
     { id: 'streak', label: 'Current streak', value: 9, delta: 0, unit: 'd', series: [3, 5, 2, 7, 4, 9, 6, 8, 5, 9, 7, 9, 8, 9] },
-    { id: 'reviews', label: 'Reviews given', value: 63, delta: 11, unit: '', series: [3, 5, 4, 6, 5, 7, 4, 8, 6, 7, 5, 8, 6, 9] },
   ],
   all: [
     { id: 'prompts', label: 'Prompts', value: 3412, delta: 24, unit: '', series: [8, 11, 9, 14, 12, 17, 15, 21, 19, 24, 22, 28, 26, 31] },
     { id: 'hours', label: 'Agent hours', value: 1204, delta: 21, unit: 'h', series: [40, 52, 61, 58, 74, 88, 95, 104, 112, 126, 138, 156, 149, 168] },
-    { id: 'merged', label: 'PRs merged', value: 187, delta: 16, unit: '', series: [6, 9, 8, 13, 11, 16, 14, 19, 17, 22, 25, 27, 24, 29] },
-    { id: 'accepted', label: 'Diff accept rate', value: 77, delta: 6, unit: '%', series: [61, 64, 67, 66, 70, 69, 72, 71, 74, 73, 76, 75, 78, 77] },
     { id: 'streak', label: 'Longest streak', value: 63, delta: 0, unit: 'd', series: [7, 12, 9, 21, 16, 28, 24, 39, 31, 47, 42, 58, 51, 63] },
-    { id: 'reviews', label: 'Reviews given', value: 421, delta: 19, unit: '', series: [12, 18, 15, 24, 21, 29, 26, 34, 30, 38, 35, 43, 39, 47] },
   ],
 }
 
