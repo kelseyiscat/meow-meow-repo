@@ -5,6 +5,7 @@ on:
     branches: [ "main", "arena/**" ]
   pull_request:
     branches: [ "main", "arena/**" ]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -12,6 +13,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Print environment info
+        run: |
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Ref: $GITHUB_REF"
+          echo "Commit: $GITHUB_SHA"
 
       - name: Run a successful test
         run: |
