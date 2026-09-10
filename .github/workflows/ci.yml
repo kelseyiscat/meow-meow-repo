@@ -8,6 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
+  # Smoke-test job: verifies the workflow runs on every push and pull request.
   test:
     runs-on: ubuntu-latest
     steps:
