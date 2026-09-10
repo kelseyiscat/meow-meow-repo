@@ -20,6 +20,7 @@ jobs:
           echo "Ref: $GITHUB_REF"
           echo "Commit: $GITHUB_SHA"
 
+      # Placeholder test step — always passes until a real test suite is added.
       - name: Run a successful test
         run: |
           echo "Running tests..."
