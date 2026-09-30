@@ -1,5 +1,3 @@
-// this is a test comments from staging
-
 // Generates and prints a random alphanumeric string with fewer than 10 characters.
 
 function generateRandomString(length) {
