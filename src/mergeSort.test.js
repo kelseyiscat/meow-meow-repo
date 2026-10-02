@@ -4,7 +4,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { mergeSort } from './mergeSort.js';
+import { bubbleSort, mergeSort } from './mergeSort.js';
 
 describe('mergeSort', () => {
   it('sorts an unsorted array of numbers in ascending order', () => {
@@ -40,5 +40,42 @@ describe('mergeSort', () => {
   it('throws a TypeError for arrays containing non-numbers or NaN', () => {
     assert.throws(() => mergeSort([1, 'two', 3]), TypeError);
     assert.throws(() => mergeSort([1, NaN, 3]), TypeError);
+  });
+});
+
+describe('bubbleSort', () => {
+  it('sorts an unsorted array of numbers in ascending order', () => {
+    assert.deepEqual(bubbleSort([38, 27, 43, 3, 9, 82, 10]), [3, 9, 10, 27, 38, 43, 82]);
+  });
+
+  it('returns a new array and does not mutate the input', () => {
+    const input = [5, 3, 1];
+    const sorted = bubbleSort(input);
+    assert.deepEqual(input, [5, 3, 1]);
+    assert.notEqual(sorted, input);
+  });
+
+  it('handles empty and single-element arrays', () => {
+    assert.deepEqual(bubbleSort([]), []);
+    assert.deepEqual(bubbleSort([42]), [42]);
+  });
+
+  it('handles duplicates and already-sorted input', () => {
+    assert.deepEqual(bubbleSort([2, 1, 2, 1, 2]), [1, 1, 2, 2, 2]);
+    assert.deepEqual(bubbleSort([1, 2, 3, 4]), [1, 2, 3, 4]);
+  });
+
+  it('handles negative numbers and Infinity', () => {
+    assert.deepEqual(bubbleSort([0, -3, 7, -Infinity, Infinity]), [-Infinity, -3, 0, 7, Infinity]);
+  });
+
+  it('throws a TypeError for non-array input', () => {
+    assert.throws(() => bubbleSort('not an array'), TypeError);
+    assert.throws(() => bubbleSort(null), TypeError);
+  });
+
+  it('throws a TypeError for arrays containing non-numbers or NaN', () => {
+    assert.throws(() => bubbleSort([1, 'two', 3]), TypeError);
+    assert.throws(() => bubbleSort([1, NaN, 3]), TypeError);
   });
 });
