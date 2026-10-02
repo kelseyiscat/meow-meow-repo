@@ -1,4 +1,4 @@
-// mergeSort.js — a simple merge sort implementation (no UI).
+// mergeSort.js — simple merge sort and bubble sort implementations (no UI).
 // Run the demo with: node src/mergeSort.js
 
 /**
@@ -11,22 +11,60 @@
  */
 export function mergeSort(arr) {
   // Validate once at the entry point rather than on every recursive call.
+  validateNumberArray(arr, 'mergeSort');
+
+  return sort(arr);
+}
+
+/**
+ * Sorts an array of numbers using bubble sort.
+ * Returns a new sorted array; the input is not mutated.
+ *
+ * @param {number[]} arr Array of finite numbers (Infinity is allowed, NaN is not).
+ * @returns {number[]} A new array sorted in ascending order.
+ * @throws {TypeError} If `arr` is not an array, or holds a non-number / NaN value.
+ */
+export function bubbleSort(arr) {
+  validateNumberArray(arr, 'bubbleSort');
+
+  const result = arr.slice();
+
+  // Move the largest remaining value to the end of the unsorted portion.
+  for (let pass = 0; pass < result.length - 1; pass++) {
+    let swapped = false;
+
+    for (let i = 0; i < result.length - 1 - pass; i++) {
+      if (result[i] > result[i + 1]) {
+        const current = result[i];
+        result[i] = result[i + 1];
+        result[i + 1] = current;
+        swapped = true;
+      }
+    }
+
+    // If a full pass made no swaps, the array is already sorted.
+    if (!swapped) break;
+  }
+
+  return result;
+}
+
+/** Validates that a value is an array containing only numbers that can be sorted. */
+function validateNumberArray(arr, functionName) {
   if (!Array.isArray(arr)) {
-    throw new TypeError(`mergeSort expects an array, received ${describe(arr)}`);
+    throw new TypeError(`${functionName} expects an array, received ${describe(arr)}`);
   }
 
   for (let i = 0; i < arr.length; i++) {
     const value = arr[i];
-    // NaN breaks the comparisons below and would silently return a bad order,
+    // NaN breaks comparisons and would silently return a bad order,
     // so reject it up front with a message that points at the offender.
     if (typeof value !== 'number' || Number.isNaN(value)) {
       throw new TypeError(
-        `mergeSort expects an array of numbers, received ${describe(value)} at index ${i}`,
+        `${functionName} expects an array of numbers, received ${describe(value)} at index ${i}`,
       );
     }
   }
-
-  return sort(arr);
 }
 
 /** Recursive core. Assumes `arr` is already validated. */
@@ -81,6 +119,7 @@ const isDirectRun =
 
 if (isDirectRun) {
   const sample = [38, 27, 43, 3, 9, 82, 10];
-  console.log('Input: ', sample);
-  console.log('Sorted:', mergeSort(sample));
+  console.log('Input:      ', sample);
+  console.log('Merge sort: ', mergeSort(sample));
+  console.log('Bubble sort:', bubbleSort(sample));
 }
