@@ -1,11 +1,11 @@
-// mergeSort.js — simple merge sort and bubble sort implementations (no UI).
+// mergeSort.js — simple merge sort, bubble sort, and quick sort implementations (no UI).
 // Run the demo with: node src/mergeSort.js
 
 /**
  * Sorts an array of numbers using merge sort.
  * Returns a new sorted array; the input is not mutated.
  *
- * @param {number[]} arr Array of finite numbers (Infinity is allowed, NaN is not).
+ * @param {number[]} arr Array of numbers (Infinity is allowed, NaN is not).
  * @returns {number[]} A new array sorted in ascending order.
  * @throws {TypeError} If `arr` is not an array, or holds a non-number / NaN value.
  */
@@ -20,7 +20,7 @@ export function mergeSort(arr) {
  * Sorts an array of numbers using bubble sort.
  * Returns a new sorted array; the input is not mutated.
  *
- * @param {number[]} arr Array of finite numbers (Infinity is allowed, NaN is not).
+ * @param {number[]} arr Array of numbers (Infinity is allowed, NaN is not).
  * @returns {number[]} A new array sorted in ascending order.
  * @throws {TypeError} If `arr` is not an array, or holds a non-number / NaN value.
  */
@@ -49,6 +49,20 @@ export function bubbleSort(arr) {
   return result;
 }
 
+/**
+ * Sorts an array of numbers using quick sort.
+ * Returns a new sorted array; the input is not mutated.
+ *
+ * @param {number[]} arr Array of numbers (Infinity is allowed, NaN is not).
+ * @returns {number[]} A new array sorted in ascending order.
+ * @throws {TypeError} If `arr` is not an array, or holds a non-number / NaN value.
+ */
+export function quickSort(arr) {
+  validateNumberArray(arr, 'quickSort');
+
+  return quickSortRecursive(arr);
+}
+
 /** Validates that a value is an array containing only numbers that can be sorted. */
 function validateNumberArray(arr, functionName) {
   if (!Array.isArray(arr)) {
@@ -67,7 +81,7 @@ function validateNumberArray(arr, functionName) {
   }
 }
 
-/** Recursive core. Assumes `arr` is already validated. */
+/** Recursive merge sort core. Assumes `arr` is already validated. */
 function sort(arr) {
   // Base case: arrays of length 0 or 1 are already sorted.
   if (arr.length <= 1) return arr.slice();
@@ -101,6 +115,28 @@ function merge(left, right) {
   return result.concat(left.slice(i), right.slice(j));
 }
 
+/** Recursive quick sort core. Assumes `arr` is already validated. */
+function quickSortRecursive(arr) {
+  if (arr.length <= 1) return arr.slice();
+
+  const pivot = arr[Math.floor(arr.length / 2)];
+  const less = [];
+  const equal = [];
+  const greater = [];
+
+  for (const value of arr) {
+    if (value < pivot) {
+      less.push(value);
+    } else if (value > pivot) {
+      greater.push(value);
+    } else {
+      equal.push(value);
+    }
+  }
+
+  return quickSortRecursive(less).concat(equal, quickSortRecursive(greater));
+}
+
 /** Builds a short, readable description of a value for error messages. */
 function describe(value) {
   if (value === null) return 'null';
@@ -122,4 +158,5 @@ if (isDirectRun) {
   console.log('Input:      ', sample);
   console.log('Merge sort: ', mergeSort(sample));
   console.log('Bubble sort:', bubbleSort(sample));
+  console.log('Quick sort: ', quickSort(sample));
 }
