@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Example GitHub CLI API request: list repository issues.
+gh api repos/kelseyiscat/meow-meow-repo/issues
