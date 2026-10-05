@@ -1,4 +1,3 @@
-// mergeSort.test.js — tests for src/mergeSort.js
 // Run with: npm test  (or: node --test src/)
 
 import { describe, it } from 'node:test';
