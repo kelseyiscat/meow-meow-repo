@@ -7,7 +7,7 @@ import { LogoutDialog } from '../components/profile/LogoutDialog'
 import { WrappedCallout } from '../components/profile/WrappedCallout'
 import { BADGES } from '../profileData'
 
-export default function Profile({ avatar, onAvatarChange, settings, onSettingsChange, onLogout }) {
+export default function Profile({ profile, avatar, onAvatarChange, onProfileChange, settings, onSettingsChange, onLogout }) {
   const [range, setRange] = useState('30d')
   const [showSettings, setShowSettings] = useState(false)
   const [confirmLogout, setConfirmLogout] = useState(false)
@@ -17,8 +17,10 @@ export default function Profile({ avatar, onAvatarChange, settings, onSettingsCh
     <>
       <div className="wrap">
         <ProfileHeader
+          profile={profile}
           avatar={avatar}
           onAvatarChange={onAvatarChange}
+          onProfileChange={onProfileChange}
           onOpenSettings={() => setShowSettings(true)}
           onLogout={() => setConfirmLogout(true)}
         />
