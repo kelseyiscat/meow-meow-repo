@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyCast — Weather, simplified</title>
+  <meta name="description" content="SkyCast: beautiful, simple weather forecasts for everywhere you go." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Animated sky background -->
+  <div class="sky" aria-hidden="true">
+    <div class="sun"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+  </div>
+
+  <header class="nav">
+    <div class="brand">⛅ SkyCast</div>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#cities">Cities</a>
+      <a href="#cta" class="btn btn-ghost">Get started</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Weather, <span class="accent">beautifully simple.</span></h1>
+      <p class="subtitle">
+        Real-time forecasts, hourly trends, and gentle rain alerts —
+        all in one calm little dashboard.
+      </p>
+
+      <form class="search" id="search-form">
+        <input
+          type="text"
+          id="city-input"
+          placeholder="Try a city… e.g. San Francisco"
+          autocomplete="off"
+        />
+        <button type="submit" class="btn btn-primary">Check weather</button>
+      </form>
+
+      <!-- Live demo weather card -->
+      <div class="weather-card" id="weather-card">
+        <div class="wc-top">
+          <div>
+            <div class="wc-city" id="wc-city">San Francisco</div>
+            <div class="wc-cond" id="wc-cond">Partly cloudy</div>
+          </div>
+          <div class="wc-icon" id="wc-icon">⛅</div>
+        </div>
+        <div class="wc-temp"><span id="wc-temp">18</span>°C</div>
+        <div class="wc-meta">
+          <span>💧 <span id="wc-humidity">62</span>% humidity</span>
+          <span>🌬️ <span id="wc-wind">12</span> km/h wind</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+      <h2>Everything you need, nothing you don't</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="feature-icon">🌦️</div>
+          <h3>Hourly forecasts</h3>
+          <p>See exactly when the rain starts and stops, hour by hour.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">📍</div>
+          <h3>Any location</h3>
+          <p>Search any city on earth or use your current location.</p>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔔</div>
+          <h3>Gentle alerts</h3>
+          <p>Soft nudges before storms, heatwaves, or frosty mornings.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sample cities -->
+    <section class="cities" id="cities">
+      <h2>Peek at a few cities</h2>
+      <div class="city-grid" id="city-grid"><!-- filled by app.js --></div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="cta">
+      <h2>Start your day with clear skies ☀️</h2>
+      <p>Free, no sign-up required. Just you and the forecast.</p>
+      <a href="#search-form" class="btn btn-primary btn-lg">Try SkyCast</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built for testing • SkyCast demo • <span id="year"></span></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
