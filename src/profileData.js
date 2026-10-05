@@ -12,6 +12,8 @@ export const USER = {
   joined: 'Joined March 2024',
   plan: 'Team',
   initials: 'R',
+  bio: 'Building calm, capable workflows with Agent Mode.',
+  location: 'Remote · UTC',
 }
 
 export const PRESET_AVATARS = [

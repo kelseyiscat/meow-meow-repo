@@ -4,7 +4,7 @@ import { PRESET_AVATARS, USER } from '../profileData'
  * The user's picture in one place: an uploaded image, a chosen preset
  * gradient, or the initial. Every surface that shows a face uses this.
  */
-export function Avatar({ avatar, size = 34, className = '', title }) {
+export function Avatar({ avatar, size = 34, className = '', title, initials = USER.initials }) {
   const style = { width: size, height: size, fontSize: Math.round(size * 0.38) }
 
   if (avatar?.type === 'image') {
@@ -29,7 +29,7 @@ export function Avatar({ avatar, size = 34, className = '', title }) {
       title={title}
       aria-hidden="true"
     >
-      {USER.initials}
+      {initials}
     </div>
   )
 }

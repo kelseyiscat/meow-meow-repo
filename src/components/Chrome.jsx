@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { Avatar } from './Avatar'
 
 /** The Arena app shell: icon rail down the left, top bar across. */
-export function Rail({ avatar }) {
+export function Rail({ avatar, initials }) {
   const navigate = useNavigate()
 
   return (
@@ -32,7 +32,7 @@ export function Rail({ avatar }) {
         title="Your profile"
         aria-label="Your profile"
       >
-        <Avatar avatar={avatar} size={34} />
+        <Avatar avatar={avatar} initials={initials} size={34} />
       </button>
       <RailButton label="Docs">
         <rect x="5" y="3" width="14" height="18" rx="2" />

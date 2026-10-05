@@ -4,7 +4,7 @@ import { Rail, TopBar } from './components/Chrome'
 import { TooltipProvider } from './components/Tooltip'
 import { SignedOut } from './components/profile/LogoutDialog'
 import { useLocalState } from './hooks/useLocalState'
-import { DEFAULT_SETTINGS, PRESET_AVATARS } from './profileData'
+import { DEFAULT_SETTINGS, PRESET_AVATARS, USER } from './profileData'
 import Profile from './pages/Profile'
 import Wrapped from './pages/Wrapped'
 
@@ -13,6 +13,7 @@ const DEFAULT_AVATAR = { type: 'preset', id: PRESET_AVATARS[0].id }
 export default function App() {
   const { pathname } = useLocation()
   const [avatar, setAvatar] = useLocalState('arena.avatar', DEFAULT_AVATAR)
+  const [profile, setProfile] = useLocalState('arena.profile', USER)
   const [settings, setSettings] = useLocalState('arena.settings', DEFAULT_SETTINGS)
   const [signedIn, setSignedIn] = useState(true)
   const [tablesOpen, setTablesOpen] = useState(false)
@@ -35,7 +36,7 @@ export default function App() {
 
   return (
     <TooltipProvider>
-      <Rail avatar={avatar} />
+      <Rail avatar={avatar} initials={profile.initials} />
       <TopBar
         title={onWrapped ? 'Wrapped 2026' : 'Your profile'}
         backTo={onWrapped ? '/' : undefined}
@@ -59,8 +60,10 @@ export default function App() {
             path="/"
             element={
               <Profile
+                profile={profile}
                 avatar={avatar}
                 onAvatarChange={setAvatar}
+                onProfileChange={setProfile}
                 settings={settings}
                 onSettingsChange={setSettings}
                 onLogout={() => setSignedIn(false)}
