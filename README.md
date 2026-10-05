@@ -132,6 +132,10 @@ labels, and a table view (top-right toggle), so nothing is carried by colour alo
 - 😴 **[Aryan and the Little Golden Loaf](./tired-Aryan)** — one tired human, one very round cat. 💛🍞
 - 🦊 **[Teozorro the Red Velvet Loaf](./teozorro-cat)** — a little woodland fox who mastered sunbeams, cardboard boxes, and being a cat. 📦🐱
 
+## 🔔 Webhook Test
+
+This tiny README-only change was added to create a simple test pull request for webhook validation.
+
 ## 🧪 Testing
 
 This repo is used for testing Arena's workflow handling:
