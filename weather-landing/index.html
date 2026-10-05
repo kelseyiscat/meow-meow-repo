@@ -40,9 +40,18 @@
           id="city-input"
           placeholder="Try a city… e.g. San Francisco"
           autocomplete="off"
+          aria-label="Search for a city"
         />
         <button type="submit" class="btn btn-primary">Check weather</button>
       </form>
+
+      <div class="quick-cities" aria-label="Popular city shortcuts">
+        <span>Quick try:</span>
+        <button type="button" class="quick-city" data-city="Tokyo">Tokyo</button>
+        <button type="button" class="quick-city" data-city="London">London</button>
+        <button type="button" class="quick-city" data-city="Sydney">Sydney</button>
+      </div>
+      <p class="search-status" id="search-status" role="status" aria-live="polite"></p>
 
       <!-- Live demo weather card -->
       <div class="weather-card" id="weather-card">
