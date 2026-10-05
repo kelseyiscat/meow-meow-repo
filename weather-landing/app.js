@@ -38,14 +38,20 @@ function lookup(city) {
   return MOCK[key] || fakeWeatherFor(key);
 }
 
+function prettyCity(city) {
+  return city.trim().replace(/\b\w/g, (m) => m.toUpperCase());
+}
+
 function render(city, w) {
-  document.getElementById("wc-city").textContent =
-    city.replace(/\b\w/g, (m) => m.toUpperCase());
+  const displayCity = prettyCity(city);
+  document.getElementById("wc-city").textContent = displayCity;
   document.getElementById("wc-cond").textContent = w.cond;
   document.getElementById("wc-icon").textContent = w.icon;
   document.getElementById("wc-temp").textContent = w.temp;
   document.getElementById("wc-humidity").textContent = w.humidity;
   document.getElementById("wc-wind").textContent = w.wind;
+  document.getElementById("search-status").textContent =
+    `Showing a demo forecast for ${displayCity}.`;
 
   const card = document.getElementById("weather-card");
   card.style.transform = "scale(1.03)";
@@ -54,11 +60,24 @@ function render(city, w) {
 
 // --- search form ---
 const form = document.getElementById("search-form");
+const cityInput = document.getElementById("city-input");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const input = document.getElementById("city-input");
-  const w = lookup(input.value);
-  if (w) render(input.value, w);
+  const w = lookup(cityInput.value);
+  if (w) {
+    render(cityInput.value, w);
+    return;
+  }
+  document.getElementById("search-status").textContent = "Enter a city to see its demo forecast.";
+  cityInput.focus();
+});
+
+// Quick city buttons keep the demo one click away on small screens.
+document.querySelectorAll(".quick-city").forEach((button) => {
+  button.addEventListener("click", () => {
+    cityInput.value = button.dataset.city;
+    render(cityInput.value, lookup(cityInput.value));
+  });
 });
 
 // --- sample city cards ---
