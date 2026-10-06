@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Soup Buns · 小笼包</title>
+  <style>
+    :root { --ink: #30251f; --cream: #fff8ed; --red: #b74331; --gold: #e3a43b; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font: 16px/1.6 Georgia, serif; }
+    main { max-width: 980px; margin: auto; padding: 28px 22px 64px; }
+    nav { display: flex; justify-content: space-between; align-items: center; font-family: Arial, sans-serif; }
+    .logo { color: var(--red); font-weight: bold; letter-spacing: .08em; }
+    nav a { color: var(--ink); text-decoration: none; margin-left: 20px; font-size: 14px; }
+    .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; padding: 90px 0 80px; }
+    .eyebrow { color: var(--red); font: bold 13px Arial, sans-serif; letter-spacing: .15em; text-transform: uppercase; }
+    h1 { font-size: clamp(48px, 8vw, 86px); line-height: .95; font-weight: normal; margin: 14px 0 22px; }
+    h1 span { color: var(--red); }
+    .intro { max-width: 450px; color: #6f5a4d; font-size: 18px; }
+    .button { display: inline-block; margin-top: 14px; padding: 12px 20px; border-radius: 99px; background: var(--red); color: white; text-decoration: none; font-family: Arial, sans-serif; font-size: 14px; }
+    .steamer { position: relative; height: 340px; display: grid; place-items: center; background: #f2dfbe; border-radius: 48% 48% 20px 20px; }
+    .steam { position: absolute; top: 38px; color: white; font-size: 46px; letter-spacing: 18px; opacity: .85; }
+    .bun { position: relative; width: 220px; height: 145px; border-radius: 50% 50% 44% 44%; background: radial-gradient(circle at 50% 20%, #fff5dc 0 6%, transparent 7%), #f8d99e; box-shadow: inset 0 -15px 0 #e8bd76, 0 16px 0 #c98e47; }
+    .bun:before { content: ""; position: absolute; top: -12px; left: 92px; width: 34px; height: 28px; border-radius: 50%; background: #f8d99e; box-shadow: -18px 7px 0 -7px #dbaa68, 18px 7px 0 -7px #dbaa68; }
+    .fold { position: absolute; inset: 28px 42px auto; height: 68px; border-top: 3px solid #d4a764; border-radius: 50%; opacity: .7; }
+    .fold:nth-child(2) { transform: rotate(18deg); }
+    .fold:nth-child(3) { transform: rotate(-18deg); }
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; border-top: 1px solid #e7cfaa; padding-top: 34px; }
+    .fact { padding: 22px; background: white; border-radius: 16px; }
+    .fact b { display: block; color: var(--red); font-size: 30px; font-weight: normal; }
+    .fact p { margin: 5px 0 0; color: #6f5a4d; }
+    footer { margin-top: 54px; text-align: center; color: #987e68; font-size: 14px; }
+    @media (max-width: 680px) { .hero { grid-template-columns: 1fr; padding: 64px 0; } .steamer { height: 280px; } .facts { grid-template-columns: 1fr; } nav a { margin-left: 10px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <nav>
+      <div class="logo">蒸 · STEAMED</div>
+      <div><a href="#story">The story</a><a href="#taste">Taste notes</a></div>
+    </nav>
+
+    <section class="hero" id="story">
+      <div>
+        <div class="eyebrow">A little basket of joy</div>
+        <h1>Meet the <span>hot soup bun.</span></h1>
+        <p class="intro">Xiaolongbao, or 小笼包, are delicate Shanghai-style dumplings filled with savory broth and tender pork. Pick one up carefully—there is soup hiding inside.</p>
+        <a class="button" href="#taste">Explore the bite ↓</a>
+      </div>
+      <div class="steamer" aria-label="An illustrated soup bun in a bamboo steamer" role="img">
+        <div class="steam">∿ ∿</div>
+        <div class="bun"><i class="fold"></i><i class="fold"></i><i class="fold"></i></div>
+      </div>
+    </section>
+
+    <section class="facts" id="taste">
+      <article class="fact"><b>01</b><p><strong>Pinch.</strong> The pleated top keeps the warm filling tucked safely inside.</p></article>
+      <article class="fact"><b>02</b><p><strong>Nibble.</strong> Make a tiny opening first so the fragrant soup can escape.</p></article>
+      <article class="fact"><b>03</b><p><strong>Sip.</strong> Add black vinegar and ginger, then enjoy the whole tender bite.</p></article>
+    </section>
+
+    <footer>小笼包 · xiaolongbao · best shared while steaming hot</footer>
+  </main>
+</body>
+</html>
