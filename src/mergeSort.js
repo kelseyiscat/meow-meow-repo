@@ -1,4 +1,4 @@
-// mergeSort.js — simple merge sort, bubble sort, and quick sort implementations (no UI).
+// mergeSort.js — simple merge sort, bubble sort, quick sort, insertion sort, and heap sort implementations (no UI).
 // Run the demo with: node src/mergeSort.js
 
 /**
@@ -61,6 +61,68 @@ export function quickSort(arr) {
   validateNumberArray(arr, 'quickSort');
 
   return quickSortRecursive(arr);
+}
+
+/**
+ * Sorts an array of numbers using insertion sort.
+ * Returns a new sorted array; the input is not mutated.
+ *
+ * @param {number[]} arr Array of numbers (Infinity is allowed, NaN is not).
+ * @returns {number[]} A new array sorted in ascending order.
+ * @throws {TypeError} If `arr` is not an array, or holds a non-number / NaN value.
+ */
+export function insertionSort(arr) {
+  validateNumberArray(arr, 'insertionSort');
+
+  const result = arr.slice();
+
+  // Grow a sorted region at the front, one element at a time.
+  for (let i = 1; i < result.length; i++) {
+    const current = result[i];
+    let j = i - 1;
+
+    // Shift every element larger than `current` one slot to the right.
+    while (j >= 0 && result[j] > current) {
+      result[j + 1] = result[j];
+      j--;
+    }
+
+    // Drop the held value into the gap that opened up.
+    result[j + 1] = current;
+  }
+
+  return result;
+}
+
+/**
+ * Sorts an array of numbers using heap sort.
+ * Returns a new sorted array; the input is not mutated.
+ *
+ * @param {number[]} arr Array of numbers (Infinity is allowed, NaN is not).
+ * @returns {number[]} A new array sorted in ascending order.
+ * @throws {TypeError} If `arr` is not an array, or holds a non-number / NaN value.
+ */
+export function heapSort(arr) {
+  validateNumberArray(arr, 'heapSort');
+
+  const result = arr.slice();
+
+  // Phase 1: rearrange the array in place into a max heap (parent >= children),
+  // starting from the last parent node and working toward the root.
+  for (let i = Math.floor(result.length / 2) - 1; i >= 0; i--) {
+    siftDown(result, i, result.length);
+  }
+
+  // Phase 2: repeatedly swap the max (root) with the last unsorted element,
+  // shrink the heap, and restore the heap property.
+  for (let end = result.length - 1; end > 0; end--) {
+    const root = result[0];
+    result[0] = result[end];
+    result[end] = root;
+    siftDown(result, 0, end);
+  }
+
+  return result;
 }
 
 /** Validates that a value is an array containing only numbers that can be sorted. */
@@ -137,6 +199,31 @@ function quickSortRecursive(arr) {
   return quickSortRecursive(less).concat(equal, quickSortRecursive(greater));
 }
 
+/**
+ * Restores the max-heap property for the subtree rooted at index `i`,
+ * treating `heap[0..size)` as the active heap. Assumes values are valid numbers.
+ */
+function siftDown(heap, i, size) {
+  while (true) {
+    const left = 2 * i + 1;
+    const right = 2 * i + 2;
+    let largest = i;
+
+    if (left < size && heap[left] > heap[largest]) largest = left;
+    if (right < size && heap[right] > heap[largest]) largest = right;
+
+    // If the root already dominates both children, the subtree is a valid heap.
+    if (largest === i) return;
+
+    const current = heap[i];
+    heap[i] = heap[largest];
+    heap[largest] = current;
+
+    // Continue sifting through the child we swapped into.
+    i = largest;
+  }
+}
+
 /** Builds a short, readable description of a value for error messages. */
 function describe(value) {
   if (value === null) return 'null';
@@ -156,8 +243,10 @@ const isDirectRun =
 if (isDirectRun) {
   console.log('hello');
   const sample = [38, 27, 43, 3, 9, 82, 10];
-  console.log('Input:      ', sample);
-  console.log('Merge sort: ', mergeSort(sample));
-  console.log('Bubble sort:', bubbleSort(sample));
-  console.log('Quick sort: ', quickSort(sample));
+  console.log('Input:         ', sample);
+  console.log('Merge sort:    ', mergeSort(sample));
+  console.log('Bubble sort:   ', bubbleSort(sample));
+  console.log('Quick sort:    ', quickSort(sample));
+  console.log('Insertion sort:', insertionSort(sample));
+  console.log('Heap sort:     ', heapSort(sample));
 }
