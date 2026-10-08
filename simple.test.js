@@ -6,6 +6,6 @@ function add(a, b) {
 }
 
 // Verify that the add helper returns the expected sum.
-test('adds two numbers', () => {
+test('adds two numbers 🧮', () => {
   assert.equal(add(2, 3), 5);
 });
