@@ -50,6 +50,35 @@ export function bubbleSort(arr) {
 }
 
 /**
+ * Sorts an array of numbers using insertion sort.
+ * Returns a new sorted array; the input is not mutated.
+ *
+ * @param {number[]} arr Array of numbers (Infinity is allowed, NaN is not).
+ * @returns {number[]} A new array sorted in ascending order.
+ * @throws {TypeError} If `arr` is not an array, or holds a non-number / NaN value.
+ */
+export function insertionSort(arr) {
+  validateNumberArray(arr, 'insertionSort');
+
+  const result = arr.slice();
+
+  // Insert each value into the sorted portion to its left.
+  for (let i = 1; i < result.length; i++) {
+    const current = result[i];
+    let j = i - 1;
+
+    while (j >= 0 && result[j] > current) {
+      result[j + 1] = result[j];
+      j--;
+    }
+
+    result[j + 1] = current;
+  }
+
+  return result;
+}
+
+/**
  * Sorts an array of numbers using quick sort.
  * Returns a new sorted array; the input is not mutated.
  *
@@ -158,6 +187,7 @@ if (isDirectRun) {
   const sample = [38, 27, 43, 3, 9, 82, 10];
   console.log('Input:      ', sample);
   console.log('Merge sort: ', mergeSort(sample));
-  console.log('Bubble sort:', bubbleSort(sample));
-  console.log('Quick sort: ', quickSort(sample));
+  console.log('Bubble sort:   ', bubbleSort(sample));
+  console.log('Insertion sort:', insertionSort(sample));
+  console.log('Quick sort:    ', quickSort(sample));
 }
