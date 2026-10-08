@@ -154,6 +154,7 @@ const isDirectRun =
   import.meta.url === new URL(process.argv[1], 'file://').href;
 
 if (isDirectRun) {
+  console.log('hello');
   const sample = [38, 27, 43, 3, 9, 82, 10];
   console.log('Input:      ', sample);
   console.log('Merge sort: ', mergeSort(sample));
