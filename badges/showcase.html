@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arena Badge System — Showcase</title>
+<style>
+  :root {
+    --bg: #070b16;
+    --panel: #0e1526;
+    --line: #1d2942;
+    --text: #e8edf7;
+    --muted: #8b96ad;
+    --bronze: #c6875a;
+    --silver: #c9d4e3;
+    --gold: #e8b64c;
+    --prismatic: linear-gradient(100deg, #ff6d7a, #ffb45e, #ffe66d, #7ce07c, #61c4ff, #b07bff, #ff6d7a);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(1200px 700px at 50% -10%, #101a33 0%, var(--bg) 55%);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 48px 24px 80px;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 44px; }
+  .kicker {
+    display: inline-block; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); border: 1px solid var(--line); border-radius: 999px;
+    padding: 6px 14px; margin-bottom: 16px;
+  }
+  h1 { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; }
+  h1 .spark { background: var(--prismatic); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .sub { color: var(--muted); max-width: 640px; margin: 14px auto 0; line-height: 1.6; }
+  .controls { display: flex; gap: 10px; justify-content: center; margin: 28px 0 8px; }
+  .controls button {
+    background: var(--panel); color: var(--text); border: 1px solid var(--line);
+    padding: 9px 18px; border-radius: 999px; font-size: 14px; cursor: pointer;
+    transition: 0.15s;
+  }
+  .controls button:hover { border-color: #3b4d78; }
+  .controls button.active { background: #1b2a4d; border-color: #4d6bc0; }
+  h2.section { font-size: 22px; font-weight: 700; margin: 46px 0 20px; display: flex; align-items: center; gap: 10px; }
+  h2.section .count { color: var(--muted); font-size: 14px; font-weight: 500; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 18px; }
+  .card {
+    background: linear-gradient(180deg, #101a30 0%, var(--panel) 100%);
+    border: 1px solid var(--line); border-radius: 20px; padding: 22px 18px 18px;
+    text-align: center; transition: 0.2s;
+  }
+  .card:hover { transform: translateY(-4px); border-color: #31456f; box-shadow: 0 12px 30px rgba(0,0,0,0.45); }
+  .badge-img {
+    width: 132px; height: 132px; margin: 0 auto 16px; display: block;
+    filter: drop-shadow(0 8px 22px rgba(0,0,0,0.45));
+  }
+  .card.playing .badge-img { animation: bob 2.4s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  .name { font-weight: 700; font-size: 16px; }
+  .desc { color: var(--muted); font-size: 12.5px; line-height: 1.5; margin: 8px 0 14px; min-height: 38px; }
+  .tier {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px;
+    border: 1px solid;
+  }
+  .tier .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .tier-bronze { color: var(--bronze); border-color: rgba(198,135,90,0.45); }
+  .tier-bronze .dot { background: var(--bronze); }
+  .tier-silver { color: var(--silver); border-color: rgba(201,212,227,0.4); }
+  .tier-silver .dot { background: var(--silver); }
+  .tier-gold { color: var(--gold); border-color: rgba(232,182,76,0.45); }
+  .tier-gold .dot { background: var(--gold); }
+  .tier-prismatic { color: #ffd77a; border-color: rgba(255,170,120,0.5); background: linear-gradient(90deg, rgba(255,109,122,0.12), rgba(97,196,255,0.12)); }
+  .tier-prismatic .dot { background: var(--prismatic); }
+  .slug { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; color: #56617a; margin-top: 12px; }
+  footer { text-align: center; color: var(--muted); margin-top: 60px; font-size: 13px; line-height: 1.7; }
+  footer code { background: var(--panel); border: 1px solid var(--line); padding: 2px 7px; border-radius: 6px; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Arena.ai · Badge System v1</div>
+    <h1>Battle. Vote. <span class="spark">Earn Badges.</span></h1>
+    <p class="sub">
+      A launch set of 7 animated badges — from your first battle vote to leaderboard legend.
+      Hover to pause &amp; inspect; the medal, aura ring and orbit sparkles loop forever.
+    </p>
+    <div class="controls">
+      <button id="live" class="active" onclick="setMode('live')">▶ Animated</button>
+      <button id="still" onclick="setMode('still')">■ Static</button>
+    </div>
+  </header>
+
+  <h2 class="section">🏁 Rookie Habits <span class="count">2 badges</span></h2>
+  <div class="grid" id="rookie"></div>
+
+  <h2 class="section">🎯 Mastery <span class="count">3 badges</span></h2>
+  <div class="grid" id="mastery"></div>
+
+  <h2 class="section">👑 Legend <span class="count">2 badges</span></h2>
+  <div class="grid" id="legend"></div>
+
+  <footer>
+    Static PNGs are in <code>badges/png/</code> · animated GIFs in <code>badges/gif/</code>.<br/>
+    Full concept doc: <code>badges/BADGE_IDEAS.md</code>
+  </footer>
+</div>
+
+<script>
+const BADGES = [
+  { slug: "first-vote", name: "First Vote", desc: "Cast your very first battle vote.", tier: "bronze", group: "rookie" },
+  { slug: "streak-fire", name: "On Fire", desc: "Vote 7 days in a row. Evolves at 30 & 100.", tier: "bronze", group: "rookie" },
+  { slug: "vote-milestone", name: "Centurion", desc: "100 lifetime votes — one star per 100.", tier: "gold", group: "mastery" },
+  { slug: "model-whisperer", name: "Model Whisperer", desc: "Guess the model correctly 10 times in blind battles.", tier: "silver", group: "mastery" },
+  { slug: "oracle", name: "The Oracle", desc: "50 correct model predictions. Ultimate instinct.", tier: "prismatic", group: "mastery" },
+  { slug: "arena-elite", name: "Arena Elite", desc: "1,000 lifetime votes.", tier: "gold", group: "legend" },
+  { slug: "founding-voter", name: "Founding Voter", desc: "Registered & voted in the first 30 days. Limited edition.", tier: "prismatic", group: "legend" },
+];
+const TIER_LABEL = { bronze: "Bronze", silver: "Silver", gold: "Gold", prismatic: "Prismatic" };
+let mode = "live";
+
+function setMode(m) {
+  mode = m;
+  document.getElementById("live").classList.toggle("active", m === "live");
+  document.getElementById("still").classList.toggle("active", m === "still");
+  document.querySelectorAll(".badge-img").forEach((img) => {
+    const base = img.dataset.slug;
+    img.src = m === "live" ? `gif/${base}.gif` : `png/${base}.png`;
+    img.closest(".card").classList.toggle("playing", m === "live");
+  });
+}
+
+function cardHTML(b) {
+  return `<div class="card playing">
+    <img class="badge-img" data-slug="${b.slug}" src="gif/${b.slug}.gif" alt="${b.name} badge" loading="lazy" />
+    <div class="name">${b.name}</div>
+    <div class="desc">${b.desc}</div>
+    <span class="tier tier-${b.tier}"><span class="dot"></span>${TIER_LABEL[b.tier]}</span>
+    <div class="slug">${b.slug}</div>
+  </div>`;
+}
+
+document.querySelectorAll(".grid").forEach((g) => { g.innerHTML = ""; });
+["rookie", "mastery", "legend"].forEach((group) => {
+  document.getElementById(group).innerHTML = BADGES.filter((b) => b.group === group).map(cardHTML).join("");
+});
+</script>
+</body>
+</html>
