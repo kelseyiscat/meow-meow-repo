@@ -151,7 +151,7 @@ node pullRequest.js
 
 ## 🤝 Contributing
 
-Pull requests are welcome! 🎉 Bonus points for more cats. 🐾😸
+Pull requests are welcome! 🎉 Bonus points for more cats and cozy naps. 🐾😸💤
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-cat`)
