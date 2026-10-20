@@ -1,9 +1,9 @@
 {
-  "name": "arena-wrapped",
+  "name": "arena-farm",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Arena Wrapped — a year of agent sessions, wrapped.",
+  "description": "A playful landing page for Arena Farm — grow useful AI agents.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
