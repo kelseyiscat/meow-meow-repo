@@ -125,12 +125,13 @@ categorical slots for the mode stack, a single blue hue for magnitude bars, and 
 six-step sequential ramp for the heatmap. Every chart ships a hover tooltip, direct
 labels, and a table view (top-right toggle), so nothing is carried by colour alone.
 
-<!-- Featured stories links -->
-## 🐈 Featured Stories
+<!-- Featured pages links -->
+## 🐈 Featured Pages
 
-- 🐱 **[The Tiny Adventure of Mochi](./cute-cat)** — a curious kitten, a runaway leaf, and a sunny garden. ☀️🍃
-- 😴 **[Aryan and the Little Golden Loaf](./tired-Aryan)** — one tired human, one very round cat. 💛🍞
-- 🦊 **[Teozorro the Red Velvet Loaf](./teozorro-cat)** — a little woodland fox who mastered sunbeams, cardboard boxes, and being a cat. 📦🐱
+- ⚡ **[Arena Clone](./arena-clone)** — an Arena-style UI demo in plain HTML/CSS/JS. 🐱
+- 🌻 **[Arena Farm](./arena-farm)** — fresh food, friendly animals, happy weekends. 🐮
+- 🥟 **[Soup Buns · 小笼包](./soup-bun)** — a little love letter to the hot soup bun. 💨
+- ⛅ **[SkyCast](./weather-landing)** — weather, beautifully simple. 🌤️
 
 ## 🔔 Webhook Test
 
