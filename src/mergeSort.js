@@ -249,4 +249,5 @@ if (isDirectRun) {
   console.log('Quick sort:    ', quickSort(sample));
   console.log('Insertion sort:', insertionSort(sample));
   console.log('Heap sort:     ', heapSort(sample));
+  console.log('Built-in sort: ', sample.slice().sort((a, b) => a - b));
 }
